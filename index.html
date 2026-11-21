@@ -1,0 +1,2807 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#4f46e5">
+<title>贞丰七小 · 乒乓球班级团体赛</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800;14..32,900&display=swap" rel="stylesheet">
+<style>
+    :root{
+        --ink:#101f45;
+        --ink-2:#2c3f6b;
+        --muted:#6b7ba6;
+        --blue:#2563eb;
+        --indigo:#4f46e5;
+        --cyan:#06b6d4;
+        --violet:#7c3aed;
+        --pink:#db2777;
+        --coral:#f43f5e;
+        --amber:#f59e0b;
+        --green:#10b981;
+        --line:#e3ecff;
+        --shadow-sm:0 12px 26px -20px rgba(30,58,138,.55);
+        --shadow-md:0 18px 38px -24px rgba(30,58,138,.6), 0 6px 14px -12px rgba(30,58,138,.25);
+        --shadow-lg:0 28px 55px -26px rgba(37,99,235,.55), 0 10px 22px -14px rgba(37,99,235,.32);
+    }
+
+    *{margin:0;padding:0;box-sizing:border-box;}
+
+    html{scroll-behavior:smooth;}
+
+    body{
+        font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'PingFang SC','Microsoft YaHei',sans-serif;
+        color:var(--ink);
+        line-height:1.6;
+        padding:2.2rem 1.5rem 3rem;
+        min-height:100vh;
+        overflow-x:hidden;
+        background:
+            radial-gradient(900px 520px at 8% -8%, #dbeafe 0%, transparent 60%),
+            radial-gradient(800px 480px at 102% 2%, #fae8ff 0%, transparent 58%),
+            radial-gradient(900px 560px at 50% 112%, #ccfbf1 0%, transparent 62%),
+            linear-gradient(160deg,#f7faff 0%, #eef4ff 42%, #f7f2ff 100%);
+        background-attachment:fixed;
+    }
+
+    body::before,
+    body::after{
+        content:"";
+        position:fixed;
+        border-radius:50%;
+        filter:blur(70px);
+        pointer-events:none;
+        z-index:0;
+        opacity:.6;
+    }
+    body::before{
+        width:520px;height:520px;top:-170px;left:-150px;
+        background:radial-gradient(circle,#a5b4fc,#ddd6fe 62%,transparent 72%);
+        animation:floatA 20s ease-in-out infinite;
+    }
+    body::after{
+        width:620px;height:620px;bottom:-240px;right:-200px;
+        background:radial-gradient(circle,#67e8f9,#a7f3d0 62%,transparent 74%);
+        animation:floatB 26s ease-in-out infinite;
+    }
+    @keyframes floatA{0%,100%{transform:translate(0,0)}50%{transform:translate(70px,55px)}}
+    @keyframes floatB{0%,100%{transform:translate(0,0)}50%{transform:translate(-80px,-50px)}}
+
+    .container{max-width:1300px;margin:0 auto;position:relative;z-index:1;}
+
+    /* ===== 主视觉 ===== */
+    .hero{
+        position:relative;
+        overflow:hidden;
+        isolation:isolate;
+        border-radius:2.6rem;
+        padding:3rem 2.8rem;
+        color:#fff;
+        margin-bottom:2.6rem;
+        border:1px solid rgba(255,255,255,.3);
+        background:
+            radial-gradient(700px 340px at 88% 6%, rgba(255,255,255,.3), transparent 62%),
+            radial-gradient(520px 420px at 2% 110%, rgba(236,72,153,.55), transparent 64%),
+            radial-gradient(560px 380px at 58% 124%, rgba(6,182,212,.5), transparent 66%),
+            linear-gradient(135deg,#4f46e5 0%, #2563eb 46%, #06b6d4 100%);
+        box-shadow:
+            0 34px 64px -26px rgba(37,99,235,.7),
+            0 14px 30px -18px rgba(79,70,229,.5),
+            inset 0 1px 0 rgba(255,255,255,.4);
+        transition:transform .35s cubic-bezier(.2,.9,.3,1.2), box-shadow .35s;
+    }
+    .hero:hover{
+        transform:translateY(-4px);
+        box-shadow:
+            0 44px 76px -28px rgba(37,99,235,.8),
+            0 18px 36px -18px rgba(79,70,229,.6),
+            inset 0 1px 0 rgba(255,255,255,.5);
+    }
+    .hero::before{
+        content:"";
+        position:absolute;
+        top:-60%;left:-30%;
+        width:60%;height:220%;
+        background:linear-gradient(90deg,transparent,rgba(255,255,255,.22),transparent);
+        transform:rotate(18deg);
+        animation:sheen 7s ease-in-out infinite;
+        pointer-events:none;
+    }
+    @keyframes sheen{0%,100%{left:-40%}50%{left:110%}}
+    .hero::after{
+        content:"🏓";
+        position:absolute;
+        right:1rem;bottom:-4.6rem;
+        font-size:15rem;
+        opacity:.11;
+        transform:rotate(12deg);
+        pointer-events:none;
+        filter:drop-shadow(0 0 24px rgba(255,255,255,.45));
+    }
+    .hero h1{
+        position:relative;
+        font-size:2.75rem;
+        font-weight:900;
+        letter-spacing:-.02em;
+        line-height:1.18;
+        text-shadow:0 6px 22px rgba(12,26,70,.35), 0 1px 0 rgba(255,255,255,.15);
+        margin-bottom:.5rem;
+    }
+    .hero .subhead{
+        position:relative;
+        display:flex;
+        flex-wrap:wrap;
+        gap:1.6rem;
+        margin-top:1.4rem;
+        font-size:1rem;
+        font-weight:500;
+        opacity:.96;
+    }
+    .hero .subhead i{margin-right:.5rem;opacity:.85;}
+    .badge-group{position:relative;display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2rem;}
+    .badge{
+        display:inline-flex;align-items:center;gap:.55rem;
+        padding:.65rem 1.4rem;
+        border-radius:3rem;
+        font-weight:700;font-size:.88rem;
+        color:#fff;
+        background:rgba(255,255,255,.16);
+        border:1px solid rgba(255,255,255,.38);
+        backdrop-filter:blur(10px);
+        box-shadow:0 10px 22px -14px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.35);
+        transition:transform .25s cubic-bezier(.2,.9,.3,1.2), background .25s;
+    }
+    .badge:hover{transform:translateY(-3px);background:rgba(255,255,255,.28);}
+
+    /* ===== 数据卡片 ===== */
+    .stats-row{
+        display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(195px,1fr));
+        gap:1.4rem;
+        margin-bottom:2.6rem;
+    }
+    .stat-card{
+        position:relative;
+        display:flex;align-items:center;gap:1.1rem;
+        padding:1.6rem 1.45rem;
+        border-radius:1.7rem;
+        background:linear-gradient(150deg,#ffffff 0%,#f8fbff 100%);
+        border:1px solid rgba(255,255,255,.95);
+        box-shadow:var(--shadow-md);
+        overflow:hidden;
+        transition:transform .3s cubic-bezier(.2,.9,.3,1.2), box-shadow .3s, border-color .3s;
+    }
+    .stat-card::before{
+        content:"";
+        position:absolute;inset:0;
+        background:radial-gradient(140px 100px at 108% -10%, var(--accent-soft), transparent 72%);
+        pointer-events:none;
+    }
+    .stat-card::after{
+        content:"";
+        position:absolute;left:0;top:18%;bottom:18%;
+        width:5px;border-radius:0 8px 8px 0;
+        background:linear-gradient(180deg,var(--accent),var(--accent-2));
+        box-shadow:2px 0 10px -2px var(--accent);
+    }
+    .stat-card:hover{
+        transform:translateY(-6px);
+        box-shadow:var(--shadow-lg);
+        border-color:#dbe8ff;
+    }
+    .stat-card:nth-child(1){--accent:#2563eb;--accent-2:#38bdf8;--accent-soft:rgba(56,189,248,.2);}
+    .stat-card:nth-child(2){--accent:#7c3aed;--accent-2:#c084fc;--accent-soft:rgba(192,132,252,.2);}
+    .stat-card:nth-child(3){--accent:#db2777;--accent-2:#fb7185;--accent-soft:rgba(251,113,133,.2);}
+    .stat-card:nth-child(4){--accent:#ea580c;--accent-2:#fbbf24;--accent-soft:rgba(251,191,36,.24);}
+
+    .stat-icon{
+        flex-shrink:0;
+        width:3.5rem;height:3.5rem;
+        border-radius:1.15rem;
+        display:grid;place-items:center;
+        font-size:1.5rem;color:#fff;
+        background:linear-gradient(145deg,var(--accent),var(--accent-2));
+        box-shadow:0 12px 22px -12px var(--accent), inset 0 1px 0 rgba(255,255,255,.5);
+        transition:transform .3s cubic-bezier(.2,.9,.3,1.2);
+    }
+    .stat-card:hover .stat-icon{transform:scale(1.07) rotate(-4deg);}
+    .stat-content h3{
+        font-size:2.05rem;
+        font-weight:900;
+        line-height:1.1;
+        letter-spacing:-.02em;
+        background:linear-gradient(135deg,var(--accent),var(--accent-2));
+        -webkit-background-clip:text;background-clip:text;
+        -webkit-text-fill-color:transparent;
+    }
+    .stat-content p{
+        margin-top:.15rem;
+        font-size:.78rem;
+        font-weight:800;
+        letter-spacing:.06em;
+        text-transform:uppercase;
+        color:var(--muted);
+    }
+
+    /* ===== 标签导航 ===== */
+    .tabs{
+        display:flex;flex-wrap:wrap;gap:.5rem;
+        padding:.55rem;
+        margin-bottom:2.2rem;
+        border-radius:2rem;
+        background:rgba(255,255,255,.78);
+        backdrop-filter:blur(14px);
+        border:1px solid rgba(255,255,255,.98);
+        box-shadow:0 16px 34px -24px rgba(30,58,138,.65), inset 0 1px 0 #fff;
+    }
+    .tab-btn{
+        display:inline-flex;align-items:center;gap:.55rem;
+        padding:.85rem 1.5rem;
+        border:none;border-radius:2rem;
+        background:transparent;
+        font-family:inherit;
+        font-size:.9rem;font-weight:700;
+        color:#4b5b82;
+        cursor:pointer;
+        transition:all .25s cubic-bezier(.2,.9,.3,1.2);
+    }
+    .tab-btn i{font-size:.92rem;opacity:.85;}
+    .tab-btn:hover{background:#eef4ff;color:var(--blue);transform:translateY(-1px);}
+    .tab-btn.active{
+        color:#fff;
+        background:linear-gradient(135deg,#4f46e5,#2563eb 55%,#06b6d4);
+        box-shadow:0 14px 26px -14px rgba(37,99,235,.95), inset 0 1px 0 rgba(255,255,255,.45);
+        transform:translateY(-2px);
+    }
+    .tab-btn.active i{opacity:1;}
+
+    /* ===== 面板 ===== */
+    .panel{display:none;}
+    .panel.active{display:block;animation:fadeUp .38s cubic-bezier(.2,.8,.3,1);}
+    @keyframes fadeUp{
+        from{opacity:0;transform:translateY(14px) scale(.995);}
+        to{opacity:1;transform:translateY(0) scale(1);}
+    }
+
+    /* ===== 区块标题 ===== */
+    .section-title{
+        display:flex;align-items:center;gap:.75rem;
+        margin:2.2rem 0 1.3rem;
+        font-size:1.5rem;font-weight:900;
+        letter-spacing:-.01em;
+        color:#132a5e;
+    }
+    .section-title i{
+        flex-shrink:0;
+        width:2.4rem;height:2.4rem;
+        display:grid;place-items:center;
+        border-radius:.85rem;
+        font-size:.95rem;color:#fff;
+        background:linear-gradient(145deg,#4f46e5,#06b6d4);
+        box-shadow:0 10px 20px -10px rgba(37,99,235,.95), inset 0 1px 0 rgba(255,255,255,.4);
+    }
+
+    /* ===== 信息卡片 ===== */
+    .card-grid{
+        display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
+        gap:1.5rem;
+        margin-bottom:2rem;
+    }
+    .info-card{
+        position:relative;
+        padding:1.8rem;
+        border-radius:1.6rem;
+        background:linear-gradient(158deg,#ffffff 0%,#f7faff 100%);
+        border:1px solid var(--line);
+        box-shadow:var(--shadow-sm);
+        transition:transform .3s cubic-bezier(.2,.9,.3,1.2), box-shadow .3s, border-color .3s;
+    }
+    .info-card:hover{
+        transform:translateY(-6px);
+        border-color:#c9ddff;
+        box-shadow:var(--shadow-lg);
+    }
+    .info-card h3{
+        display:flex;align-items:center;gap:.6rem;
+        margin-bottom:.95rem;
+        font-size:1.12rem;font-weight:800;
+        color:#142a5c;
+    }
+    .info-card h3 i{color:var(--blue);font-size:1rem;}
+    .info-card p,
+    .info-card li{color:var(--ink-2);font-size:.95rem;font-weight:500;}
+    .info-card ul{list-style:none;}
+    .info-card ul li{
+        display:flex;align-items:flex-start;gap:.65rem;
+        padding:.35rem 0;
+    }
+    .info-card ul li i{
+        flex-shrink:0;
+        margin-top:.42rem;
+        font-size:.5rem;
+        color:var(--cyan);
+    }
+
+    /* ===== 时间卡片 ===== */
+    .schedule-card{
+        display:grid;
+        gap:.7rem;
+        padding:1.5rem 1.7rem;
+        border-radius:1.6rem;
+        background:linear-gradient(150deg,#ffffff,#f4f9ff);
+        border:1px solid var(--line);
+        box-shadow:var(--shadow-sm);
+    }
+    .schedule-date{
+        display:inline-flex;align-items:center;gap:.55rem;
+        align-self:flex-start;
+        padding:.45rem 1.1rem;
+        border-radius:2rem;
+        font-size:.9rem;font-weight:800;color:#fff;
+        background:linear-gradient(135deg,#4f46e5,#2563eb);
+        box-shadow:0 10px 20px -12px rgba(37,99,235,.95);
+    }
+    .schedule-row{
+        display:flex;align-items:center;gap:.9rem;
+        flex-wrap:wrap;
+        padding:.55rem 0;
+        border-bottom:1px dashed #dbe8ff;
+    }
+    .schedule-row:last-child{border-bottom:none;}
+    .schedule-tag{
+        display:inline-flex;align-items:center;gap:.45rem;
+        padding:.35rem 1rem;
+        border-radius:2rem;
+        font-size:.82rem;font-weight:800;
+    }
+    .schedule-tag.am{background:#fff7e6;color:#b45309;border:1px solid #fde3ab;}
+    .schedule-tag.pm{background:#eef2ff;color:#4338ca;border:1px solid #d5dbff;}
+    .schedule-time{font-weight:700;color:var(--ink-2);font-size:.95rem;}
+
+    /* ===== 表格 ===== */
+    .table-wrap{
+        overflow:hidden;
+        border-radius:1.5rem;
+        background:#fff;
+        border:1px solid var(--line);
+        box-shadow:var(--shadow-md);
+        margin:1.2rem 0 2rem;
+    }
+    table{width:100%;border-collapse:collapse;font-size:.93rem;min-width:560px;}
+    th{
+        padding:1rem 1.25rem;
+        text-align:left;
+        font-size:.8rem;font-weight:800;
+        letter-spacing:.06em;text-transform:uppercase;
+        color:#fff;
+        background:linear-gradient(135deg,#4f46e5,#2563eb 60%,#0891b2);
+    }
+    td{
+        padding:1rem 1.25rem;
+        border-bottom:1px solid #eef4ff;
+        color:var(--ink-2);
+        font-weight:500;
+        background:#fff;
+    }
+    tbody tr{transition:background .2s;}
+    tbody tr:hover td{background:#f3f8ff;}
+    tr:last-child td{border-bottom:none;}
+    .highlight-cell td{
+        background:linear-gradient(90deg,#eef4ff,#e0f2fe) !important;
+        color:#1e3a8a;
+        font-weight:800;
+    }
+
+    /* ===== 按钮 ===== */
+    .btn-sim{
+        position:relative;
+        overflow:hidden;
+        display:inline-flex;align-items:center;gap:.6rem;
+        padding:.9rem 2.1rem;
+        border:none;border-radius:3rem;
+        font-family:inherit;
+        font-size:.93rem;font-weight:800;
+        color:#fff;
+        cursor:pointer;
+        background:linear-gradient(135deg,#4f46e5,#2563eb 55%,#06b6d4);
+        box-shadow:0 16px 32px -16px rgba(37,99,235,.95), inset 0 1px 0 rgba(255,255,255,.4);
+        transition:transform .25s cubic-bezier(.2,.9,.3,1.2), box-shadow .25s, filter .25s;
+    }
+    .btn-sim::before{
+        content:"";
+        position:absolute;top:0;left:-100%;
+        width:100%;height:100%;
+        background:linear-gradient(90deg,transparent,rgba(255,255,255,.45),transparent);
+        transition:left .55s;
+    }
+    .btn-sim:hover{
+        transform:translateY(-3px);
+        filter:brightness(1.06);
+        box-shadow:0 24px 44px -18px rgba(37,99,235,1), inset 0 1px 0 rgba(255,255,255,.5);
+    }
+    .btn-sim:hover::before{left:100%;}
+    .btn-sim:active{transform:translateY(-1px);}
+
+    /* ===== 模拟结果区 ===== */
+    .result-area{
+        padding:1.8rem;
+        margin-top:1.6rem;
+        border-radius:1.7rem;
+        border:1.5px dashed #bcd3f7;
+        background:linear-gradient(150deg,#f6faff,#eef6ff);
+        box-shadow:inset 0 2px 10px rgba(37,99,235,.06), 0 12px 26px -22px rgba(30,58,138,.5);
+    }
+    .result-area h4{
+        display:flex;align-items:center;gap:.6rem;
+        margin-bottom:1.2rem;
+        font-size:1.12rem;font-weight:800;color:#132a5e;
+    }
+    .result-area h4 i{color:var(--blue);}
+
+    /* ===== 赛程条目 ===== */
+    .fixture{
+        display:flex;align-items:center;flex-wrap:wrap;gap:1rem;
+        padding:1rem 1.4rem;
+        margin-bottom:.8rem;
+        border-radius:1.2rem;
+        background:linear-gradient(150deg,#ffffff,#f8fbff);
+        border:1px solid var(--line);
+        box-shadow:0 10px 22px -20px rgba(30,58,138,.6), inset 0 1px 0 #fff;
+        transition:transform .25s cubic-bezier(.2,.9,.3,1.2), box-shadow .25s, border-color .25s;
+    }
+    .fixture:hover{
+        transform:translateX(5px);
+        border-color:#c9ddff;
+        box-shadow:0 16px 30px -22px rgba(37,99,235,.6);
+    }
+    .fixture .team{font-weight:800;color:#132a5e;min-width:110px;font-size:.97rem;}
+    .fixture .vs{
+        padding:.22rem .8rem;
+        border-radius:2rem;
+        font-size:.75rem;font-weight:800;letter-spacing:.08em;
+        color:#fff;
+        background:linear-gradient(135deg,#4f46e5,#06b6d4);
+        box-shadow:0 6px 14px -8px rgba(37,99,235,.9);
+    }
+    .fixture .score{
+        margin-left:auto;
+        padding:.35rem 1.15rem;
+        border-radius:2rem;
+        font-size:.8rem;font-weight:800;
+        color:#0e7490;
+        background:#e0f7fb;
+        border:1px solid #b8ecf4;
+        box-shadow:inset 0 1px 0 #fff;
+    }
+    .footnote{
+        display:flex;align-items:flex-start;gap:.5rem;
+        margin-top:1.1rem;
+        font-size:.86rem;font-style:italic;
+        color:var(--muted);
+    }
+    .footnote i{margin-top:.3rem;color:var(--cyan);}
+
+    /* ===== 模拟分组 ===== */
+    .sim-grade{
+        display:flex;align-items:center;gap:.6rem;
+        margin:1.3rem 0 .9rem;
+        font-size:1rem;font-weight:900;color:#132a5e;
+    }
+    .sim-grade::before{
+        content:"";
+        width:6px;height:22px;border-radius:4px;
+        background:linear-gradient(180deg,#4f46e5,#06b6d4);
+        box-shadow:0 4px 10px -4px rgba(37,99,235,.9);
+    }
+    .sim-group-container{display:flex;flex-wrap:wrap;gap:1.1rem;margin-bottom:.6rem;}
+    .sim-group{
+        flex:1;min-width:180px;
+        padding:1.2rem;
+        border-radius:1.3rem;
+        background:linear-gradient(150deg,#ffffff,#f5faff);
+        border:1px solid var(--line);
+        box-shadow:0 12px 26px -22px rgba(30,58,138,.6), inset 0 1px 0 #fff;
+        transition:transform .25s cubic-bezier(.2,.9,.3,1.2), box-shadow .25s;
+    }
+    .sim-group:hover{
+        transform:translateY(-4px);
+        box-shadow:0 20px 36px -24px rgba(37,99,235,.65);
+    }
+    .sim-group .group-label{
+        display:inline-block;
+        padding:.28rem 1rem;
+        margin-bottom:.85rem;
+        border-radius:2rem;
+        font-size:.76rem;font-weight:900;letter-spacing:.03em;
+        color:#fff;
+        background:linear-gradient(135deg,#4f46e5,#2563eb);
+        box-shadow:0 8px 16px -10px rgba(37,99,235,.95);
+    }
+    .sim-group .empty-label{
+        background:linear-gradient(135deg,#f59e0b,#f97316);
+        box-shadow:0 8px 16px -10px rgba(245,158,11,.95);
+    }
+    .sim-group ul{list-style:none;}
+    .sim-group ul li{
+        display:flex;align-items:center;gap:.6rem;
+        padding:.3rem 0;
+        font-size:.93rem;font-weight:700;color:var(--ink-2);
+    }
+    .sim-group ul li i{font-size:.45rem;color:var(--cyan);}
+    .sim-group.empty-group{
+        background:linear-gradient(150deg,#fffdf5,#fff7e6);
+        border-color:#fbe3ae;
+    }
+    .sim-group.empty-group ul li{color:#92400e;}
+    .sim-group.empty-group ul li i{color:var(--amber);}
+
+    /* ===== 奖项条 ===== */
+    .award-stripe{
+        border-left:8px solid transparent;
+        border-radius:1.2rem;
+        position:relative;
+        overflow:hidden;
+    }
+    .award-stripe.gold{border-left-color:#f0b429;background:linear-gradient(150deg,#fffdf4,#fff8e3);}
+    .award-stripe.silver{border-left-color:#94a3b8;background:linear-gradient(150deg,#fbfcfe,#f1f5f9);}
+    .award-stripe.bronze{border-left-color:#c2762f;background:linear-gradient(150deg,#fffaf5,#fdf2e7);}
+
+    /* ===== 实时计分器 ===== */
+    .score-wrap{
+        padding:1.8rem;
+        border-radius:1.8rem;
+        background:linear-gradient(155deg,#ffffff,#f5faff);
+        border:1px solid var(--line);
+        box-shadow:var(--shadow-md);
+    }
+    .score-toolbar{
+        display:flex;flex-wrap:wrap;gap:1rem;
+        align-items:center;justify-content:space-between;
+        margin-bottom:1.6rem;
+    }
+    .mode-switch{
+        display:inline-flex;gap:.25rem;
+        padding:.35rem;border-radius:2rem;
+        background:#eef4ff;border:1px solid #dbe8ff;
+    }
+    .mode-btn{
+        padding:.55rem 1.15rem;
+        border:none;border-radius:2rem;
+        background:transparent;
+        font-family:inherit;
+        font-size:.83rem;font-weight:800;
+        color:#4b5b82;cursor:pointer;
+        transition:all .22s;
+    }
+    .mode-btn:hover{color:var(--blue);}
+    .mode-btn.active{
+        color:#fff;
+        background:linear-gradient(135deg,#4f46e5,#2563eb);
+        box-shadow:0 8px 16px -10px rgba(37,99,235,.95);
+    }
+    .btn-reset-score{
+        display:inline-flex;align-items:center;gap:.5rem;
+        padding:.6rem 1.3rem;
+        border-radius:2rem;
+        border:1.5px solid #fbc4c4;
+        background:linear-gradient(150deg,#ffffff,#fdf2f2);
+        color:#b91c1c;
+        font-family:inherit;
+        font-size:.82rem;font-weight:800;
+        cursor:pointer;
+        transition:all .22s cubic-bezier(.2,.9,.3,1.2);
+    }
+    .btn-reset-score:hover{
+        color:#fff;border-color:transparent;
+        background:linear-gradient(145deg,#f43f5e,#dc2626);
+        transform:translateY(-2px);
+        box-shadow:0 12px 22px -12px rgba(220,38,38,.95);
+    }
+    .score-board{
+        display:grid;
+        grid-template-columns:1fr auto 1fr;
+        gap:1.2rem;
+        align-items:stretch;
+    }
+    .team-card{
+        position:relative;
+        display:flex;flex-direction:column;align-items:center;gap:.55rem;
+        padding:1.6rem 1.2rem;
+        border-radius:1.6rem;
+        border:1px solid var(--line);
+        background:linear-gradient(155deg,#fff,#f8fbff);
+        box-shadow:var(--shadow-sm);
+        transition:transform .3s, box-shadow .3s;
+    }
+    .team-card.team-a{background:linear-gradient(155deg,#fff5f5,#ffe9ea);border-color:#ffd1d4;}
+    .team-card.team-b{background:linear-gradient(155deg,#f0f8ff,#e0f0ff);border-color:#c9e4ff;}
+    .team-card:hover{box-shadow:var(--shadow-lg);}
+    .team-name-input{
+        width:100%;
+        text-align:center;
+        border:none;
+        border-bottom:2px dashed transparent;
+        background:transparent;
+        font-family:inherit;
+        font-size:1.1rem;font-weight:800;
+        color:#132a5e;
+        padding:.3rem .5rem;
+        outline:none;
+        transition:border-color .2s;
+    }
+    .team-name-input:focus{border-bottom-color:var(--blue);}
+    .team-a .team-name-input{color:#b91c1c;}
+    .team-b .team-name-input{color:#1d4ed8;}
+    .games-won{
+        display:inline-flex;align-items:center;gap:.35rem;
+        padding:.22rem 1rem;
+        border-radius:2rem;
+        font-size:.76rem;font-weight:800;
+        color:#fff;letter-spacing:.04em;
+        background:linear-gradient(135deg,#64748b,#475569);
+        box-shadow:inset 0 1px 0 rgba(255,255,255,.3);
+    }
+    .team-a .games-won{background:linear-gradient(135deg,#f43f5e,#be123c);}
+    .team-b .games-won{background:linear-gradient(135deg,#2563eb,#1e40af);}
+    .points-big{
+        font-size:4.8rem;
+        font-weight:900;
+        line-height:1;
+        letter-spacing:-.03em;
+        font-variant-numeric:tabular-nums;
+        background:linear-gradient(135deg,#4f46e5,#06b6d4);
+        -webkit-background-clip:text;background-clip:text;
+        -webkit-text-fill-color:transparent;
+    }
+    .team-a .points-big{background:linear-gradient(135deg,#f43f5e,#f97316);-webkit-background-clip:text;background-clip:text;}
+    .team-b .points-big{background:linear-gradient(135deg,#2563eb,#06b6d4);-webkit-background-clip:text;background-clip:text;}
+    .points-big.pop{animation:popNum .3s cubic-bezier(.2,1.4,.4,1);}
+    @keyframes popNum{0%{transform:scale(1)}50%{transform:scale(1.22)}100%{transform:scale(1)}}
+    .score-buttons{display:flex;gap:.6rem;margin-top:.35rem;}
+    .score-buttons button{
+        width:3rem;height:3rem;
+        border-radius:50%;
+        border:none;
+        font-family:inherit;
+        font-size:1.15rem;font-weight:900;
+        cursor:pointer;
+        transition:all .2s cubic-bezier(.2,.9,.3,1.2);
+    }
+    .score-buttons .plus{
+        color:#fff;
+        background:linear-gradient(145deg,#10b981,#059669);
+        box-shadow:0 10px 20px -10px rgba(16,185,129,.95), inset 0 1px 0 rgba(255,255,255,.4);
+    }
+    .score-buttons .minus{
+        color:#fff;
+        background:linear-gradient(145deg,#f59e0b,#d97706);
+        box-shadow:0 10px 20px -10px rgba(245,158,11,.95), inset 0 1px 0 rgba(255,255,255,.4);
+    }
+    .score-buttons button:hover{transform:translateY(-3px) scale(1.06);}
+    .score-buttons button:active{transform:scale(.95);}
+    .vs-mid{
+        display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;
+        padding:0 .4rem;
+    }
+    .vs-text{font-size:1.55rem;font-weight:900;color:#94a3b8;letter-spacing:.05em;}
+    .mode-hint{
+        font-size:.7rem;font-weight:700;color:var(--muted);
+        text-align:center;max-width:112px;line-height:1.4;
+    }
+    .score-history{
+        margin-top:1.4rem;
+        padding:1.1rem 1.3rem;
+        border-radius:1.2rem;
+        background:#f8fbff;
+        border:1px dashed #c9e4ff;
+    }
+    .score-history h4{
+        display:flex;align-items:center;gap:.5rem;
+        font-size:.9rem;font-weight:800;color:#132a5e;
+        margin-bottom:.8rem;
+    }
+    .score-history h4 i{color:var(--cyan);}
+    .history-list{display:flex;flex-wrap:wrap;gap:.5rem;min-height:2rem;}
+    .history-item{
+        display:inline-flex;align-items:center;gap:.35rem;
+        padding:.3rem .9rem;
+        border-radius:2rem;
+        font-size:.8rem;font-weight:800;
+        color:#132a5e;
+        background:#fff;
+        border:1px solid #dbe8ff;
+        box-shadow:0 4px 10px -8px rgba(37,99,235,.5);
+    }
+    .history-item.win-a{color:#be123c;border-color:#fecdd3;background:#fff1f2;}
+    .history-item.win-b{color:#1e40af;border-color:#bfdbfe;background:#eff6ff;}
+    .history-empty{font-size:.82rem;color:#94a3b8;font-style:italic;}
+    .winner-banner{
+        display:none;align-items:center;justify-content:center;gap:.7rem;
+        margin-top:1.2rem;
+        padding:1rem 1.5rem;
+        border-radius:1.2rem;
+        font-size:1.12rem;font-weight:900;color:#fff;
+        background:linear-gradient(135deg,#f59e0b,#f97316 55%,#ef4444);
+        box-shadow:0 16px 32px -14px rgba(245,158,11,.95), inset 0 1px 0 rgba(255,255,255,.35);
+    }
+    .winner-banner.show{display:flex;animation:bannerIn .4s cubic-bezier(.2,1.4,.4,1);}
+    @keyframes bannerIn{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
+
+    /* ===== 赛事相册 ===== */
+    .album-upload{
+        margin-top:1rem;
+        padding:2rem 1.5rem;
+        text-align:center;
+        cursor:pointer;
+        border-radius:1.2rem;
+        border:2px dashed #bdd4f5;
+        background:linear-gradient(150deg,#f4f9ff,#eaf3ff);
+        transition:all .25s;
+    }
+    .album-upload:hover{
+        border-color:var(--blue);
+        background:linear-gradient(150deg,#e9f2ff,#dceafc);
+        transform:translateY(-2px);
+        box-shadow:0 12px 24px -16px rgba(37,99,235,.7);
+    }
+    .album-upload.dragover{
+        border-color:var(--green);
+        background:linear-gradient(150deg,#e9fff5,#d7fbec);
+        transform:scale(1.01);
+    }
+    .album-upload i{display:block;margin-bottom:.5rem;font-size:2.3rem;color:var(--blue);transition:transform .25s;}
+    .album-upload:hover i{transform:translateY(-3px);}
+    .album-upload p{font-size:.9rem;font-weight:800;color:var(--ink-2);}
+    .album-upload small{font-size:.74rem;color:var(--muted);}
+    .album-upload input[type="file"]{display:none;}
+    .album-meta{
+        display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;
+        margin-top:1rem;
+        font-size:.85rem;font-weight:700;color:var(--ink-2);
+    }
+    .album-grid{
+        display:grid;
+        grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
+        gap:1rem;
+        margin-top:1.4rem;
+    }
+    .album-item{
+        position:relative;
+        aspect-ratio:1;
+        border-radius:1.2rem;
+        overflow:hidden;
+        cursor:pointer;
+        border:1px solid var(--line);
+        box-shadow:var(--shadow-sm);
+        background:#f0f6ff;
+        transition:transform .25s, box-shadow .25s;
+    }
+    .album-item:hover{transform:translateY(-4px) scale(1.02);box-shadow:var(--shadow-lg);}
+    .album-item img{width:100%;height:100%;object-fit:cover;display:block;}
+    .album-item .album-del{
+        position:absolute;top:.5rem;right:.5rem;
+        width:1.9rem;height:1.9rem;
+        border-radius:50%;border:none;
+        display:grid;place-items:center;
+        font-size:.8rem;color:#fff;
+        background:rgba(220,38,38,.88);
+        cursor:pointer;
+        opacity:0;
+        transition:opacity .2s, transform .2s, background .2s;
+        box-shadow:0 4px 10px -4px rgba(0,0,0,.4);
+    }
+    .album-item:hover .album-del{opacity:1;}
+    .album-item .album-del:hover{transform:scale(1.1);background:#dc2626;}
+    .album-item .album-time{
+        position:absolute;left:.5rem;bottom:.5rem;
+        padding:.2rem .6rem;
+        border-radius:2rem;
+        font-size:.65rem;font-weight:700;color:#fff;
+        background:rgba(15,23,42,.55);
+        backdrop-filter:blur(4px);
+    }
+    .album-empty{
+        display:flex;align-items:flex-start;gap:.5rem;
+        margin-top:1.2rem;
+        font-size:.86rem;font-style:italic;color:var(--muted);
+    }
+    .album-empty i{margin-top:.3rem;color:var(--cyan);}
+
+    /* ===== 灯箱 ===== */
+    .lightbox{
+        position:fixed;inset:0;z-index:10002;
+        display:none;align-items:center;justify-content:center;
+        padding:2rem;
+        background:rgba(8,15,40,.92);
+        backdrop-filter:blur(6px);
+    }
+    .lightbox.show{display:flex;animation:lbIn .25s ease;}
+    @keyframes lbIn{from{opacity:0}to{opacity:1}}
+    .lightbox img{
+        max-width:90vw;max-height:82vh;
+        border-radius:1rem;
+        box-shadow:0 30px 80px -20px rgba(0,0,0,.8);
+        animation:lbImgIn .3s cubic-bezier(.2,1.2,.4,1);
+    }
+    @keyframes lbImgIn{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:scale(1)}}
+    .lb-close,.lb-prev,.lb-next{
+        position:absolute;
+        width:3rem;height:3rem;
+        border-radius:50%;
+        border:1px solid rgba(255,255,255,.3);
+        display:grid;place-items:center;
+        font-size:1.1rem;color:#fff;
+        cursor:pointer;
+        background:rgba(255,255,255,.12);
+        backdrop-filter:blur(8px);
+        transition:all .2s;
+    }
+    .lb-close:hover,.lb-prev:hover,.lb-next:hover{background:rgba(255,255,255,.28);transform:scale(1.08);}
+    .lb-close{top:1.5rem;right:1.5rem;}
+    .lb-prev{left:1.5rem;top:50%;transform:translateY(-50%);}
+    .lb-next{right:1.5rem;top:50%;transform:translateY(-50%);}
+    .lb-prev:hover{transform:translateY(-50%) scale(1.08);}
+    .lb-next:hover{transform:translateY(-50%) scale(1.08);}
+    .lb-caption{
+        position:absolute;bottom:1.5rem;left:50%;transform:translateX(-50%);
+        padding:.5rem 1.2rem;border-radius:2rem;
+        font-size:.82rem;font-weight:700;color:#fff;
+        background:rgba(255,255,255,.14);
+        backdrop-filter:blur(8px);
+        white-space:nowrap;max-width:90vw;overflow:hidden;text-overflow:ellipsis;
+    }
+
+    /* ===== 音乐控制 ===== */
+    .music-control{
+        position:fixed;
+        right:2rem;bottom:2rem;
+        z-index:9999;
+        display:flex;flex-direction:column;align-items:flex-end;gap:.8rem;
+    }
+    .music-toggle{
+        width:3.7rem;height:3.7rem;
+        display:grid;place-items:center;
+        border:none;border-radius:50%;
+        font-size:1.45rem;color:#fff;
+        cursor:pointer;
+        background:linear-gradient(145deg,#4f46e5,#2563eb 60%,#06b6d4);
+        box-shadow:0 16px 30px -12px rgba(37,99,235,.95), 0 4px 10px -4px rgba(0,0,0,.25), inset 0 1px 2px rgba(255,255,255,.45);
+        transition:transform .25s cubic-bezier(.2,.9,.3,1.2), box-shadow .25s, background .25s;
+        position:relative;
+    }
+    .music-toggle:hover{
+        transform:translateY(-3px) scale(1.05);
+        box-shadow:0 22px 40px -14px rgba(37,99,235,1), inset 0 1px 3px rgba(255,255,255,.55);
+    }
+    .music-toggle:active{transform:translateY(-1px) scale(.98);}
+    .music-toggle.playing{
+        background:linear-gradient(145deg,#10b981,#059669);
+        box-shadow:0 16px 30px -12px rgba(16,185,129,.95), inset 0 1px 2px rgba(255,255,255,.45);
+    }
+    .music-toggle.playing::after{
+        content:"";
+        position:absolute;inset:0;
+        border-radius:50%;
+        border:2px solid rgba(255,255,255,.55);
+        animation:ripple 1.6s ease-out infinite;
+    }
+    @keyframes ripple{
+        0%{transform:scale(1);opacity:.7;}
+        100%{transform:scale(1.7);opacity:0;}
+    }
+
+    .music-panel{
+        display:none;
+        flex-direction:column;gap:.85rem;
+        min-width:280px;
+        padding:1.3rem 1.4rem;
+        border-radius:1.5rem;
+        background:linear-gradient(155deg,#ffffff,#f2f8ff);
+        border:1px solid rgba(255,255,255,.95);
+        box-shadow:0 28px 55px -22px rgba(30,58,138,.6), 0 8px 18px -10px rgba(0,0,0,.12), inset 0 1px 0 #fff;
+        transform-origin:bottom right;
+    }
+    .music-panel.show{display:flex;animation:popIn .26s cubic-bezier(.2,.9,.3,1.2);}
+    @keyframes popIn{
+        from{opacity:0;transform:scale(.88) translateY(10px);}
+        to{opacity:1;transform:scale(1) translateY(0);}
+    }
+    .music-title{
+        display:flex;align-items:center;gap:.5rem;
+        font-size:.88rem;font-weight:800;color:#132a5e;
+    }
+    .music-title i{color:var(--blue);}
+
+    .upload-area{
+        padding:1.1rem;
+        text-align:center;
+        cursor:pointer;
+        border-radius:1rem;
+        border:2px dashed #bdd4f5;
+        background:linear-gradient(150deg,#f4f9ff,#eaf3ff);
+        transition:all .25s;
+    }
+    .upload-area:hover{
+        border-color:var(--blue);
+        background:linear-gradient(150deg,#e9f2ff,#dceafc);
+        transform:translateY(-2px);
+        box-shadow:0 12px 24px -16px rgba(37,99,235,.7);
+    }
+    .upload-area.dragover{
+        border-color:var(--green);
+        background:linear-gradient(150deg,#e9fff5,#d7fbec);
+        transform:scale(1.02);
+    }
+    .upload-area i{
+        display:block;
+        margin-bottom:.45rem;
+        font-size:1.9rem;color:var(--blue);
+        transition:transform .25s;
+    }
+    .upload-area:hover i{transform:translateY(-3px);}
+    .upload-area p{font-size:.78rem;font-weight:800;color:var(--ink-2);}
+    .upload-area small{font-size:.68rem;color:var(--muted);}
+    .upload-area input[type="file"]{display:none;}
+
+    .music-info{
+        display:none;flex-direction:column;gap:.45rem;
+        padding:.75rem 1rem;
+        border-radius:1rem;
+        background:linear-gradient(150deg,#f8fbff,#eff7ff);
+        border:1px solid #d6e6fa;
+    }
+    .music-info.show{display:flex;}
+    .music-info .file-name{
+        display:flex;align-items:center;gap:.4rem;
+        font-size:.76rem;font-weight:800;color:#132a5e;
+        white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+    }
+    .music-info .file-name i{color:var(--blue);font-size:.78rem;}
+    .progress-bar{
+        width:100%;height:5px;
+        border-radius:10px;
+        background:#dbe9fa;
+        overflow:hidden;
+        box-shadow:inset 0 1px 3px rgba(0,0,0,.08);
+        cursor:pointer;
+    }
+    .progress-fill{
+        width:0%;height:100%;
+        border-radius:10px;
+        background:linear-gradient(90deg,#4f46e5,#06b6d4);
+        transition:width .15s linear;
+    }
+    .time-display{
+        display:flex;justify-content:space-between;
+        font-size:.68rem;font-weight:700;color:var(--muted);
+        font-variant-numeric:tabular-nums;
+    }
+
+    .volume-row{display:flex;align-items:center;gap:.6rem;}
+    .volume-row i{font-size:.78rem;color:var(--muted);cursor:pointer;transition:color .2s;}
+    .volume-row i:hover{color:var(--blue);}
+    .volume-row input[type="range"]{
+        flex:1;height:5px;
+        -webkit-appearance:none;appearance:none;
+        border-radius:10px;
+        background:linear-gradient(90deg,#a5b4fc,#4f46e5,#06b6d4);
+        outline:none;cursor:pointer;
+    }
+    .volume-row input[type="range"]::-webkit-slider-thumb{
+        -webkit-appearance:none;appearance:none;
+        width:15px;height:15px;border-radius:50%;
+        background:#fff;
+        border:2px solid var(--blue);
+        box-shadow:0 2px 8px rgba(37,99,235,.6);
+        cursor:pointer;
+        transition:transform .15s;
+    }
+    .volume-row input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.15);}
+    .volume-row input[type="range"]::-moz-range-thumb{
+        width:15px;height:15px;border-radius:50%;
+        background:#fff;border:2px solid var(--blue);
+        box-shadow:0 2px 8px rgba(37,99,235,.6);
+        cursor:pointer;
+    }
+
+    .playback-controls{display:flex;justify-content:center;gap:.75rem;margin-top:.15rem;}
+    .playback-controls button{
+        width:2.7rem;height:2.7rem;
+        display:grid;place-items:center;
+        border-radius:50%;
+        border:1.5px solid #d6e6fa;
+        background:linear-gradient(150deg,#ffffff,#f2f8ff);
+        color:var(--blue);
+        font-size:.88rem;
+        cursor:pointer;
+        transition:all .22s cubic-bezier(.2,.9,.3,1.2);
+        box-shadow:0 8px 16px -12px rgba(37,99,235,.7), inset 0 1px 0 #fff;
+    }
+    .playback-controls button:hover{
+        color:#fff;
+        border-color:transparent;
+        background:linear-gradient(145deg,#4f46e5,#2563eb);
+        transform:translateY(-2px);
+        box-shadow:0 14px 24px -12px rgba(37,99,235,.95);
+    }
+    .playback-controls button.main-play{
+        width:3.1rem;height:3.1rem;
+        font-size:1.05rem;color:#fff;
+        border-color:transparent;
+        background:linear-gradient(145deg,#4f46e5,#06b6d4);
+        box-shadow:0 14px 26px -12px rgba(37,99,235,1), inset 0 1px 2px rgba(255,255,255,.45);
+    }
+    .playback-controls button.main-play:hover{transform:translateY(-3px) scale(1.05);}
+
+    .save-music-row{display:flex;gap:.55rem;margin-top:.1rem;}
+    .save-music-btn{
+        flex:1;
+        display:flex;align-items:center;justify-content:center;gap:.4rem;
+        padding:.68rem .8rem;
+        border-radius:2rem;
+        border:1.5px solid #a7e8cd;
+        background:linear-gradient(150deg,#ffffff,#eafaf2);
+        color:#047857;
+        font-family:inherit;
+        font-size:.78rem;font-weight:800;
+        cursor:pointer;
+        transition:all .25s cubic-bezier(.2,.9,.3,1.2);
+        box-shadow:0 8px 16px -14px rgba(16,185,129,.9), inset 0 1px 0 #fff;
+    }
+    .save-music-btn:hover{
+        color:#fff;border-color:transparent;
+        background:linear-gradient(145deg,#10b981,#059669);
+        transform:translateY(-2px);
+        box-shadow:0 16px 28px -14px rgba(16,185,129,1);
+    }
+    .save-music-btn.saved{
+        color:#fff;border-color:transparent;
+        background:linear-gradient(145deg,#10b981,#059669);
+    }
+    .clear-saved-btn{
+        display:flex;align-items:center;justify-content:center;gap:.4rem;
+        padding:.68rem .9rem;
+        border-radius:2rem;
+        border:1.5px solid #fbc4c4;
+        background:linear-gradient(150deg,#ffffff,#fdf2f2);
+        color:#b91c1c;
+        font-family:inherit;
+        font-size:.78rem;font-weight:800;
+        white-space:nowrap;
+        cursor:pointer;
+        transition:all .25s cubic-bezier(.2,.9,.3,1.2);
+        box-shadow:0 8px 16px -14px rgba(220,38,38,.9), inset 0 1px 0 #fff;
+    }
+    .clear-saved-btn:hover{
+        color:#fff;border-color:transparent;
+        background:linear-gradient(145deg,#f43f5e,#dc2626);
+        transform:translateY(-2px);
+        box-shadow:0 16px 28px -14px rgba(220,38,38,1);
+    }
+
+    .saved-indicator{
+        display:none;align-items:center;gap:.4rem;
+        padding:.38rem .8rem;
+        border-radius:2rem;
+        font-size:.7rem;font-weight:800;color:#047857;
+        background:linear-gradient(150deg,#e9fff5,#d7fbec);
+        border:1px solid #a7e8cd;
+    }
+    .saved-indicator.show{display:inline-flex;}
+
+    .music-hint{
+        font-size:.68rem;font-style:italic;text-align:center;
+        color:#8fa2c4;
+    }
+
+    /* ===== 自动播放提示 ===== */
+    .autoplay-tip{
+        position:fixed;
+        top:50%;left:50%;
+        transform:translate(-50%,-50%);
+        z-index:10000;
+        display:flex;flex-direction:column;align-items:center;gap:1.1rem;
+        max-width:90%;
+        padding:2.4rem 2.8rem;
+        border-radius:2.2rem;
+        text-align:center;
+        color:#fff;
+        cursor:pointer;
+        border:1px solid rgba(255,255,255,.25);
+        background:
+            radial-gradient(400px 220px at 90% 0%, rgba(255,255,255,.22), transparent 62%),
+            radial-gradient(360px 260px at 0% 110%, rgba(236,72,153,.55), transparent 64%),
+            linear-gradient(145deg,#4338ca,#2563eb 55%,#0891b2);
+        box-shadow:0 36px 70px -22px rgba(37,99,235,.85), inset 0 2px 8px rgba(255,255,255,.25);
+        transition:all .3s cubic-bezier(.2,.9,.3,1.2);
+        animation:tipPulse 2.6s ease-in-out infinite;
+    }
+    .autoplay-tip:hover{
+        transform:translate(-50%,-50%) scale(1.03);
+        box-shadow:0 46px 84px -24px rgba(37,99,235,1), inset 0 2px 10px rgba(255,255,255,.3);
+    }
+    .autoplay-tip.hide{
+        opacity:0;visibility:hidden;pointer-events:none;
+        transform:translate(-50%,-50%) scale(.85);
+    }
+    @keyframes tipPulse{
+        0%,100%{box-shadow:0 36px 70px -22px rgba(37,99,235,.85), inset 0 2px 8px rgba(255,255,255,.25);}
+        50%{box-shadow:0 36px 70px -22px rgba(124,58,237,.95), inset 0 2px 8px rgba(255,255,255,.25);}
+    }
+    .autoplay-tip .tip-icon{
+        font-size:3rem;
+        filter:drop-shadow(0 6px 12px rgba(0,0,0,.35));
+        animation:tipBounce 2s ease-in-out infinite;
+    }
+    @keyframes tipBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+    .autoplay-tip h3{font-size:1.45rem;font-weight:900;text-shadow:0 3px 10px rgba(0,0,0,.3);}
+    .autoplay-tip p{max-width:340px;font-size:.92rem;opacity:.9;}
+    .autoplay-tip .tip-btn{
+        display:inline-flex;align-items:center;gap:.55rem;
+        margin-top:.3rem;
+        padding:.8rem 2.3rem;
+        border:none;border-radius:3rem;
+        font-family:inherit;
+        font-size:.98rem;font-weight:900;
+        color:#1e3a8a;
+        background:linear-gradient(145deg,#ffffff,#e6f0ff);
+        box-shadow:0 14px 28px -14px rgba(0,0,0,.55), inset 0 1px 0 #fff;
+        cursor:pointer;
+        transition:all .22s;
+    }
+    .autoplay-tip .tip-btn:hover{
+        transform:translateY(-3px);
+        box-shadow:0 20px 36px -16px rgba(0,0,0,.6);
+    }
+    .autoplay-tip .tip-btn:active{transform:translateY(-1px);}
+
+    /* ===== Toast ===== */
+    .toast{
+        position:fixed;
+        left:50%;bottom:8rem;
+        transform:translateX(-50%) translateY(20px);
+        z-index:10001;
+        display:flex;align-items:center;gap:.55rem;
+        max-width:90%;
+        padding:.85rem 1.8rem;
+        border-radius:3rem;
+        font-size:.88rem;font-weight:700;
+        color:#fff;
+        white-space:nowrap;
+        opacity:0;visibility:hidden;
+        border:1px solid rgba(255,255,255,.22);
+        background:linear-gradient(145deg,#312e81,#1d4ed8 60%,#0891b2);
+        box-shadow:0 20px 42px -18px rgba(37,99,235,.95), inset 0 1px 0 rgba(255,255,255,.25);
+        transition:all .35s cubic-bezier(.2,.9,.3,1.2);
+    }
+    .toast.show{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0);}
+    .toast.success i{color:#6ee7b7;}
+    .toast.error i{color:#fda4af;}
+
+    /* ===== 页脚 ===== */
+    .footer{
+        margin-top:3rem;
+        padding-top:2rem;
+        text-align:center;
+        font-size:.88rem;
+        color:var(--muted);
+        border-top:1px dashed #d3e3f8;
+    }
+    .footer i{color:var(--cyan);margin-right:.35rem;}
+
+    /* =========================================================
+       在线编辑相关样式
+       ========================================================= */
+    [data-edit][contenteditable="true"]{
+        outline:2px dashed rgba(79,70,229,.35);
+        outline-offset:8px;
+        border-radius:1rem;
+        cursor:text;
+        transition:outline-color .2s, background .2s;
+    }
+    [data-edit][contenteditable="true"]:hover{outline-color:rgba(79,70,229,.65);}
+    [data-edit][contenteditable="true"]:focus{
+        outline:2px solid #4f46e5;
+        background:rgba(79,70,229,.03);
+    }
+    body.editing [data-edit]::selection{background:#c7d2fe;}
+
+    .editor-bar{
+        position:fixed;
+        left:1.1rem;bottom:1.1rem;
+        z-index:9998;
+        display:flex;flex-direction:column;align-items:flex-start;gap:.5rem;
+    }
+    .ed-btn{
+        display:inline-flex;align-items:center;gap:.5rem;
+        padding:.62rem 1.15rem;
+        border-radius:2rem;
+        border:1px solid rgba(255,255,255,.9);
+        background:rgba(255,255,255,.94);
+        backdrop-filter:blur(10px);
+        color:#2c3f6b;
+        font-family:inherit;
+        font-size:.79rem;font-weight:800;
+        cursor:pointer;
+        white-space:nowrap;
+        box-shadow:0 12px 26px -16px rgba(30,58,138,.85);
+        transition:all .2s cubic-bezier(.2,.9,.3,1.2);
+    }
+    .ed-btn:hover{transform:translateY(-2px);color:#1d4ed8;box-shadow:0 16px 30px -16px rgba(30,58,138,.95);}
+    .ed-btn.primary{
+        color:#fff;border-color:transparent;
+        background:linear-gradient(135deg,#4f46e5,#2563eb 60%,#06b6d4);
+        box-shadow:0 14px 28px -14px rgba(37,99,235,.95);
+    }
+    .ed-btn.on{
+        color:#fff;border-color:transparent;
+        background:linear-gradient(135deg,#10b981,#059669);
+        box-shadow:0 14px 28px -14px rgba(16,185,129,.95);
+    }
+    .ed-btn.danger{color:#b91c1c;}
+    .ed-btn.danger:hover{color:#fff;background:linear-gradient(135deg,#f43f5e,#dc2626);border-color:transparent;}
+    .ed-menu{display:none;flex-direction:column;align-items:flex-start;gap:.45rem;}
+    body.editing .ed-menu{display:flex;animation:fadeUp .25s ease;}
+    .ed-status{
+        display:none;align-items:center;gap:.4rem;
+        padding:.36rem .85rem;
+        border-radius:2rem;
+        font-size:.7rem;font-weight:800;color:#047857;
+        background:linear-gradient(150deg,#e9fff5,#d7fbec);
+        border:1px solid #a7e8cd;
+    }
+    body.editing .ed-status{display:inline-flex;}
+    .ed-status.flash{animation:edFlash .8s ease;}
+    @keyframes edFlash{
+        0%{box-shadow:0 0 0 0 rgba(16,185,129,.55);}
+        100%{box-shadow:0 0 0 12px rgba(16,185,129,0);}
+    }
+
+    /* ===== 响应式 ===== */
+    @media (max-width:760px){
+        body{padding:1.3rem 1rem 2.4rem;}
+        .hero{padding:2rem 1.5rem;border-radius:2rem;}
+        .hero h1{font-size:1.85rem;}
+        .hero .subhead{gap:.8rem;font-size:.9rem;}
+        .hero::after{font-size:10rem;bottom:-3rem;}
+        .stat-card{padding:1.25rem 1.1rem;}
+        .stat-icon{width:3rem;height:3rem;font-size:1.3rem;border-radius:1rem;}
+        .stat-content h3{font-size:1.7rem;}
+        .tab-btn{padding:.7rem 1rem;font-size:.8rem;}
+        .section-title{font-size:1.25rem;}
+        .section-title i{width:2.1rem;height:2.1rem;font-size:.85rem;}
+        .info-card{padding:1.45rem;}
+        .fixture{padding:.9rem 1.1rem;}
+        .fixture .score{margin-left:0;}
+        .score-board{grid-template-columns:1fr;}
+        .vs-mid{flex-direction:row;padding:.2rem 0;}
+        .points-big{font-size:3.8rem;}
+        .score-buttons button{width:2.7rem;height:2.7rem;}
+        .album-grid{grid-template-columns:repeat(auto-fill,minmax(108px,1fr));gap:.7rem;}
+        .music-control{right:1.1rem;bottom:1.1rem;}
+        .music-toggle{width:3.1rem;height:3.1rem;font-size:1.25rem;}
+        .music-panel{min-width:248px;padding:1.1rem;}
+        .autoplay-tip{padding:1.8rem 1.5rem;}
+        .autoplay-tip h3{font-size:1.2rem;}
+        .autoplay-tip p{font-size:.84rem;}
+        .toast{font-size:.78rem;padding:.7rem 1.3rem;bottom:6.6rem;}
+        .lightbox{padding:1rem;}
+        .lb-close,.lb-prev,.lb-next{width:2.5rem;height:2.5rem;font-size:.95rem;}
+        .lb-close{top:.8rem;right:.8rem;}
+        .lb-prev{left:.6rem;}
+        .lb-next{right:.6rem;}
+        .editor-bar{left:.6rem;bottom:.6rem;gap:.35rem;}
+        .ed-btn{padding:.5rem .85rem;font-size:.7rem;}
+    }
+
+    ::-webkit-scrollbar{width:10px;height:10px;}
+    ::-webkit-scrollbar-track{background:#e8f1fd;border-radius:10px;}
+    ::-webkit-scrollbar-thumb{
+        border-radius:10px;
+        border:2px solid #e8f1fd;
+        background:linear-gradient(180deg,#93b4e8,#6b8fd0);
+    }
+    ::-webkit-scrollbar-thumb:hover{background:linear-gradient(180deg,#7ea6e0,#4f74bd);}
+</style>
+</head>
+<body>
+
+<!-- ===== 自动播放提示浮层 ===== -->
+<div class="autoplay-tip" id="autoplayTip">
+    <div class="tip-icon">🎵</div>
+    <h3>开启背景音乐</h3>
+    <p>点击下方按钮，为赛事页面增添活力氛围。您也可以稍后在右下角上传或保存自己的音乐。</p>
+    <button class="tip-btn" id="startMusicBtn"><i class="fas fa-play"></i> 开启音乐</button>
+</div>
+
+<!-- ===== 提示消息 ===== -->
+<div class="toast" id="toast"><i class="fas fa-check-circle"></i><span id="toastMessage">操作成功</span></div>
+
+<!-- ===== 在线编辑器浮动工具栏 ===== -->
+<div class="editor-bar">
+    <button class="ed-btn primary" id="editToggleBtn"><i class="fas fa-pen-to-square"></i> 开启编辑模式</button>
+    <div class="ed-menu">
+        <button class="ed-btn" id="cloudConfigBtn"><i class="fas fa-cloud"></i> 配置云端同步</button>
+        <button class="ed-btn" id="exportHtmlBtn"><i class="fas fa-file-export"></i> 导出网页</button>
+    </div>
+    <span class="ed-status" id="edStatus"><i class="fas fa-circle-check"></i> 正在保存至云端...</span>
+</div>
+
+<!-- ===== 云端配置弹窗 ===== -->
+<div id="cloudConfigModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.5); z-index:10005; align-items:center; justify-content:center; backdrop-filter:blur(4px);">
+    <div style="background:#fff; padding:2rem; border-radius:1.5rem; width:90%; max-width:450px; box-shadow:0 20px 40px rgba(0,0,0,.2);">
+        <h3 style="margin-bottom:1rem; color:#132a5e;"><i class="fas fa-cloud" style="color:var(--blue);"></i> 配置云端同步</h3>
+        <p style="font-size:.85rem; color:#6b7ba6; margin-bottom:1rem;">填入你在 JSONBin.io 获取的 Bin ID 和 X-Master-Key。配置后，你修改的内容将实时同步给所有访问者。</p>
+        
+        <label style="display:block; font-size:.8rem; font-weight:800; margin-bottom:.3rem; color:#2c3f6b;">Bin ID</label>
+        <input type="text" id="inputBinId" placeholder="例如：65a7c..." style="width:100%; padding:.6rem; border:1px solid #dbe8ff; border-radius:.5rem; margin-bottom:1rem; font-family:inherit; font-size:.9rem;">
+
+        <label style="display:block; font-size:.8rem; font-weight:800; margin-bottom:.3rem; color:#2c3f6b;">X-Master-Key</label>
+        <input type="password" id="inputApiKey" placeholder="例如：$2a$10$..." style="width:100%; padding:.6rem; border:1px solid #dbe8ff; border-radius:.5rem; margin-bottom:1.5rem; font-family:inherit; font-size:.9rem;">
+
+        <div style="display:flex; gap:1rem; justify-content:flex-end;">
+            <button id="closeModalBtn" style="padding:.6rem 1.2rem; border-radius:2rem; border:1px solid #dbe8ff; background:#fff; color:#2c3f6b; font-weight:800; cursor:pointer;">取消</button>
+            <button id="saveCloudConfigBtn" style="padding:.6rem 1.2rem; border-radius:2rem; border:none; background:linear-gradient(135deg,#4f46e5,#2563eb); color:#fff; font-weight:800; cursor:pointer; box-shadow:0 8px 16px -8px rgba(37,99,235,.8);">保存并测试连接</button>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <!-- ===== 主视觉 ===== -->
+    <div class="hero" data-edit="hero">
+        <h1>贞丰县第七小学<br>乒乓球班级团体赛</h1>
+        <div class="subhead">
+            <span><i class="fas fa-calendar-alt"></i> 冬季运动会 · 2026</span>
+            <span><i class="fas fa-map-pin"></i> 学校乒乓球活动场地</span>
+            <span><i class="fas fa-users"></i> 四、五、六年级 · 13个班</span>
+        </div>
+        <div class="badge-group">
+            <span class="badge"><i class="fas fa-table-tennis-paddle-ball"></i> 人人上场</span>
+            <span class="badge"><i class="fas fa-trophy"></i> 冠军 · 亚军 · 季军</span>
+            <span class="badge"><i class="fas fa-shield-halved"></i> 公平 · 公正 · 安全</span>
+        </div>
+    </div>
+
+    <!-- ===== 数据卡片 ===== -->
+    <div class="stats-row" data-edit="stats">
+        <div class="stat-card">
+            <div class="stat-icon"><i class="fas fa-school"></i></div>
+            <div class="stat-content"><h3>13</h3><p>参赛班级</p></div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon"><i class="fas fa-user-graduate"></i></div>
+            <div class="stat-content"><h3>260</h3><p>参赛学生</p></div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon"><i class="fas fa-venus-mars"></i></div>
+            <div class="stat-content"><h3>10+10</h3><p>男/女 每班</p></div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-icon"><i class="fas fa-table-tennis-paddle-ball"></i></div>
+            <div class="stat-content"><h3>2</h3><p>比赛轮次</p></div>
+        </div>
+    </div>
+
+    <!-- ===== 标签导航 ===== -->
+    <div class="tabs" id="tabs">
+        <button class="tab-btn active" data-tab="overview"><i class="fas fa-info-circle"></i> 赛事概览</button>
+        <button class="tab-btn" data-tab="format"><i class="fas fa-sitemap"></i> 赛制说明</button>
+        <button class="tab-btn" data-tab="fixtures"><i class="fas fa-calendar-check"></i> 抽签模拟 &amp; 赛程</button>
+        <button class="tab-btn" data-tab="score"><i class="fas fa-stopwatch"></i> 实时计分</button>
+        <button class="tab-btn" data-tab="album"><i class="fas fa-images"></i> 赛事相册</button>
+        <button class="tab-btn" data-tab="rules"><i class="fas fa-gavel"></i> 规则 &amp; 安全</button>
+        <button class="tab-btn" data-tab="awards"><i class="fas fa-medal"></i> 奖项设置</button>
+    </div>
+
+    <!-- ===== 面板：赛事概览 ===== -->
+    <div class="panel active" id="panel-overview" data-edit="overview">
+        <div class="section-title"><i class="fas fa-bullseye"></i>活动目的</div>
+        <div class="card-grid">
+            <div class="info-card">
+                <h3><i class="fas fa-heart-pulse"></i> 阳光体育</h3>
+                <p>丰富冬季校园文化生活，增强学生身体素质，培养团结协作、顽强拼搏的体育精神。</p>
+            </div>
+            <div class="info-card">
+                <h3><i class="fas fa-handshake"></i> 交流友谊</h3>
+                <p>增进班级之间的交流与友谊，展现七小学子积极向上的精神风貌。</p>
+            </div>
+            <div class="info-card">
+                <h3><i class="fas fa-users-gear"></i> 全员参与</h3>
+                <p>每班抽取20人（男10、女10），确保每个参赛学生都能上场参加比赛。</p>
+            </div>
+        </div>
+
+        <div class="section-title"><i class="fas fa-flag-checkered"></i>参赛规模</div>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr><th>年级</th><th>班级数</th><th>每班参赛人数</th><th>年级总人数</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>四年级</td><td>4个班</td><td>20人（男10、女10）</td><td>80人</td></tr>
+                    <tr><td>五年级</td><td>4个班</td><td>20人（男10、女10）</td><td>80人</td></tr>
+                    <tr><td>六年级</td><td>5个班</td><td>20人（男10、女10）</td><td>100人</td></tr>
+                    <tr class="highlight-cell"><td>合计</td><td>13个班</td><td>—</td><td>260人</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section-title"><i class="fas fa-clock"></i>比赛时间</div>
+        <div class="schedule-card">
+            <span class="schedule-date"><i class="fas fa-calendar-day"></i> 2026-11-19</span>
+            <div class="schedule-row">
+                <span class="schedule-tag am"><i class="fas fa-sun"></i> 上午</span>
+                <span class="schedule-time">10:00 开始</span>
+            </div>
+            <div class="schedule-row">
+                <span class="schedule-tag pm"><i class="fas fa-moon"></i> 下午</span>
+                <span class="schedule-time">14:00 开始</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== 面板：赛制说明 ===== -->
+    <div class="panel" id="panel-format" data-edit="format">
+        <div class="section-title"><i class="fas fa-layer-group"></i>第一轮 · 年级分组循环赛</div>
+        <div class="card-grid">
+            <div class="info-card">
+                <h3><i class="fas fa-dice"></i> 抽签分组</h3>
+                <ul>
+                    <li><i class="fas fa-circle"></i> 四、五年级：每个年级4个班，抽签分为A、B两组，每组2个班。</li>
+                    <li><i class="fas fa-circle"></i> 六年级：5个班，抽签分为A、B两组（各2个班），剩余1个班为“空签”，直接晋级下一轮，争夺前三名。</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h3><i class="fas fa-table-tennis-paddle-ball"></i> 对抗形式</h3>
+                <ul>
+                    <li><i class="fas fa-circle"></i> 每组两个班级的20名学生进行一对一对决。</li>
+                    <li><i class="fas fa-circle"></i> 每名学生只打一局决定胜负。</li>
+                    <li><i class="fas fa-circle"></i> 胜者为本班级争得1分，负者0分；弃权则对手得1分。</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h3><i class="fas fa-arrow-up-right-dots"></i> 晋级规则</h3>
+                <ul>
+                    <li><i class="fas fa-circle"></i> 小组积分最高的班级晋级第二轮。</li>
+                    <li><i class="fas fa-circle"></i> 如积分相同，比较双方直接对阵胜负关系。</li>
+                    <li><i class="fas fa-circle"></i> 若仍无法区分，由裁判组现场决定加赛办法。</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section-title"><i class="fas fa-crown"></i>第二轮 · 年级冠亚军争夺赛</div>
+        <div class="card-grid">
+            <div class="info-card">
+                <h3><i class="fas fa-user-check"></i> 参赛对象</h3>
+                <p>四、五年级：第一轮A组、B组胜出班级。<br>六年级：A组、B组胜出班级 + 空签晋级班级（共3个班争夺前三名）。</p>
+            </div>
+            <div class="info-card">
+                <h3><i class="fas fa-right-left"></i> 比赛形式</h3>
+                <p>每个班级抽出三名优秀学生代表班级参赛。一名学生一场，共三场（3v3）。每场采用三局二胜制。</p>
+            </div>
+            <div class="info-card">
+                <h3><i class="fas fa-calculator"></i> 计分 &amp; 名次</h3>
+                <p>胜一场为班级得1分，负者0分。积分高者为本年级冠军，另一方为亚军。剩余两个班级中第一轮积分高者为季军。</p>
+            </div>
+        </div>
+
+        <div class="info-card" style="background:linear-gradient(150deg,#f2f8ff,#e6f2fe);">
+            <h3><i class="fas fa-star"></i> 六年级特殊说明</h3>
+            <p>六年级5个班，第一轮设一个“空签”，该班直接晋级第二轮，与另外两个小组胜出班级共同争夺班级团体赛前三名。具体对阵形式（循环或淘汰）由组委会根据抽签情况确定，确保公平公正。</p>
+        </div>
+    </div>
+
+    <!-- ===== 面板：抽签模拟 & 赛程 ===== -->
+    <div class="panel" id="panel-fixtures">
+        <div class="section-title"><i class="fas fa-shuffle"></i>抽签模拟</div>
+        <div class="info-card" style="margin-bottom:1.3rem;">
+            <div data-edit="fixturesIntro">
+                <p><i class="fas fa-lightbulb" style="color:#f59e0b;"></i> 点击下方按钮，随机模拟各年级抽签分组结果。六年级将随机产生一支“空签”班级直接晋级。</p>
+            </div>
+            <div style="margin-top:1.1rem;">
+                <button class="btn-sim" id="simulateBtn"><i class="fas fa-dice"></i> 模拟抽签分组</button>
+            </div>
+        </div>
+
+        <div id="simulationResult" class="result-area">
+            <h4><i class="fas fa-list-ul"></i> 分组结果</h4>
+            <p style="color:#6b7ba6;">点击“模拟抽签分组”查看随机分组</p>
+        </div>
+
+        <div data-edit="fixturesSchedule">
+            <div class="section-title" style="margin-top:2.6rem;"><i class="fas fa-calendar-alt"></i>赛程示意（以四年级为例）</div>
+            <div class="info-card">
+                <h3><i class="fas fa-flag"></i> 第一轮 · A组</h3>
+                <div class="fixture">
+                    <span class="team">四(1)班</span><span class="vs">VS</span><span class="team">四(2)班</span>
+                    <span class="score">20场 · 每场1局</span>
+                </div>
+                <h3 style="margin-top:1.5rem;"><i class="fas fa-flag"></i> 第一轮 · B组</h3>
+                <div class="fixture">
+                    <span class="team">四(3)班</span><span class="vs">VS</span><span class="team">四(4)班</span>
+                    <span class="score">20场 · 每场1局</span>
+                </div>
+                <h3 style="margin-top:1.5rem;"><i class="fas fa-trophy"></i> 第二轮 · 冠亚军赛</h3>
+                <div class="fixture">
+                    <span class="team">A组胜出</span><span class="vs">VS</span><span class="team">B组胜出</span>
+                    <span class="score">3场 · 每场3局2胜</span>
+                </div>
+                <p class="footnote"><i class="fas fa-circle-info"></i> 实际对阵班级以抽签结果为准。六年级增加空签班级，具体赛程由组委会另行公布。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== 面板：实时计分 ===== -->
+    <div class="panel" id="panel-score">
+        <div class="section-title"><i class="fas fa-stopwatch"></i>实时计分器</div>
+        <div class="info-card" style="margin-bottom:1.3rem;">
+            <div data-edit="scoreIntro">
+                <p><i class="fas fa-lightbulb" style="color:#f59e0b;"></i> 点击 <strong>+1</strong> 为对应班级加分，点击 <strong>−</strong> 可纠正误操作。每局先到 11 分且领先 2 分者获胜，系统自动记录局分并判定最终胜方。</p>
+            </div>
+        </div>
+
+        <div class="score-wrap">
+            <div class="score-toolbar">
+                <div class="mode-switch">
+                    <button class="mode-btn active" data-mode="1">单局定胜负</button>
+                    <button class="mode-btn" data-mode="2">三局两胜</button>
+                </div>
+                <button class="btn-reset-score" id="resetScoreBtn"><i class="fas fa-rotate-left"></i> 重置比赛</button>
+            </div>
+
+            <div class="score-board">
+                <div class="team-card team-a">
+                    <input class="team-name-input" id="teamAName" value="红队" maxlength="12" aria-label="队伍A名称">
+                    <div class="games-won" id="teamAGames">局分 0</div>
+                    <div class="points-big" id="teamAPoints">0</div>
+                    <div class="score-buttons">
+                        <button class="minus" data-team="a" data-delta="-1" title="减1分">−</button>
+                        <button class="plus" data-team="a" data-delta="1" title="加1分">+1</button>
+                    </div>
+                </div>
+
+                <div class="vs-mid">
+                    <span class="vs-text">VS</span>
+                    <span class="mode-hint" id="modeHint">先到 11 分 · 领先 2 分获胜</span>
+                </div>
+
+                <div class="team-card team-b">
+                    <input class="team-name-input" id="teamBName" value="蓝队" maxlength="12" aria-label="队伍B名称">
+                    <div class="games-won" id="teamBGames">局分 0</div>
+                    <div class="points-big" id="teamBPoints">0</div>
+                    <div class="score-buttons">
+                        <button class="minus" data-team="b" data-delta="-1" title="减1分">−</button>
+                        <button class="plus" data-team="b" data-delta="1" title="加1分">+1</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="score-history">
+                <h4><i class="fas fa-clock-rotate-left"></i> 局分记录</h4>
+                <div class="history-list" id="historyList"><span class="history-empty">暂无记录</span></div>
+            </div>
+
+            <div class="winner-banner" id="winnerBanner">
+                <i class="fas fa-trophy"></i> <span id="winnerText">获胜</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== 面板：赛事相册 ===== -->
+    <div class="panel" id="panel-album">
+        <div class="section-title"><i class="fas fa-images"></i>赛事相册</div>
+        <div class="info-card">
+            <div data-edit="albumIntro">
+                <p><i class="fas fa-camera-retro" style="color:#2563eb;"></i> 上传比赛现场的精彩瞬间，留住美好回忆。图片将保存在本机浏览器中，下次打开自动加载。点击图片可放大查看。</p>
+            </div>
+
+            <div class="album-upload" id="albumUpload">
+                <i class="fas fa-cloud-arrow-up"></i>
+                <p>点击或拖拽上传照片</p>
+                <small>支持 JPG / PNG / WEBP，可多选</small>
+                <input type="file" id="albumInput" accept="image/*" multiple>
+            </div>
+
+            <div class="album-meta">
+                <span id="albumCount">共 0 张照片</span>
+                <button class="clear-saved-btn" id="clearAlbumBtn"><i class="fas fa-trash-can"></i> 清空相册</button>
+            </div>
+        </div>
+
+        <div class="album-grid" id="albumGrid"></div>
+        <p class="album-empty" id="albumEmpty"><i class="fas fa-circle-info"></i> 暂无照片，快上传比赛精彩瞬间吧！</p>
+    </div>
+
+    <!-- ===== 面板：规则 & 安全 ===== -->
+    <div class="panel" id="panel-rules" data-edit="rules">
+        <div class="section-title"><i class="fas fa-book"></i>比赛规则要点</div>
+        <div class="card-grid">
+            <div class="info-card">
+                <h3><i class="fas fa-check-circle"></i> 基本规则</h3>
+                <ul>
+                    <li><i class="fas fa-circle"></i> 执行学校简易《乒乓球竞赛规则》。</li>
+                    <li><i class="fas fa-circle"></i> 第一轮每名学生只打一局；第二轮三局二胜。</li>
+                    <li><i class="fas fa-circle"></i> 发球权、接发球权及场地由裁判组织双方抽签决定。</li>
+                    <li><i class="fas fa-circle"></i> 比赛用球由学校统一提供，球拍可自备（符合规则），学校备用部分球拍。</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h3><i class="fas fa-clock"></i> 纪律要求</h3>
+                <ul>
+                    <li><i class="fas fa-circle"></i> 提前10分钟检录，迟到超10分钟按弃权处理（对手得1分）。</li>
+                    <li><i class="fas fa-circle"></i> 尊重裁判、对手，服从判罚；如有异议由班主任向裁判长反映。</li>
+                    <li><i class="fas fa-circle"></i> 保持场地整洁，文明观赛，不得喧哗起哄。</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h3><i class="fas fa-shield-virus"></i> 安全保障</h3>
+                <ul>
+                    <li><i class="fas fa-circle"></i> 赛前全面检查场地、球台、器材安全。</li>
+                    <li><i class="fas fa-circle"></i> 班主任负责本班学生组织管理与安全教育。</li>
+                    <li><i class="fas fa-circle"></i> 现场安排医务人员/保健教师值守，配备急救药品。</li>
+                    <li><i class="fas fa-circle"></i> 做好热身，防止运动损伤；如遇恶劣天气，比赛顺延。</li>
+                </ul>
+            </div>
+        </div>
+        <div class="info-card" style="margin-top:1.1rem;">
+            <h3><i class="fas fa-clipboard-check"></i> 参赛要求</h3>
+            <p>每个班抽取20人（男10、女10），确保每个学生都能上场比赛。参赛学生须身体健康，适合乒乓球运动。各班班主任为领队，负责比赛期间纪律与安全。</p>
+        </div>
+    </div>
+
+    <!-- ===== 面板：奖项设置 ===== -->
+    <div class="panel" id="panel-awards" data-edit="awards">
+        <div class="section-title"><i class="fas fa-medal"></i>奖项设置（每个年级）</div>
+        <div class="card-grid">
+            <div class="info-card award-stripe gold">
+                <h3><i class="fas fa-trophy" style="color:#e0a800;"></i> 冠军</h3>
+                <p>班级团体赛冠军 1名 · 颁发奖状/奖旗</p>
+            </div>
+            <div class="info-card award-stripe silver">
+                <h3><i class="fas fa-medal" style="color:#7c8ea8;"></i> 亚军</h3>
+                <p>班级团体赛亚军 1名 · 颁发奖状/奖旗</p>
+            </div>
+            <div class="info-card award-stripe bronze">
+                <h3><i class="fas fa-award" style="color:#b0702f;"></i> 季军</h3>
+                <p>班级团体赛季军 1名 · 颁发奖状/奖旗</p>
+            </div>
+        </div>
+        <div class="info-card" style="margin-top:1.1rem;">
+            <h3><i class="fas fa-star"></i> 体育道德风尚奖</h3>
+            <p>若干名，表彰组织有序、赛风良好的班级。</p>
+        </div>
+
+        <div class="section-title" style="margin-top:2rem;"><i class="fas fa-list-ol"></i>名次录取办法</div>
+        <div class="info-card">
+            <ul>
+                <li><i class="fas fa-circle"></i> 冠军：第二轮胜出班级。</li>
+                <li><i class="fas fa-circle"></i> 亚军：第二轮负方班级。</li>
+                <li><i class="fas fa-circle"></i> 季军：除冠亚军外，剩余两个班级中第一轮积分高者。</li>
+                <li><i class="fas fa-circle"></i> 六年级5个班，设冠军、亚军、季军各1个，空签班级直接参与前三名争夺。</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer" data-edit="footer">
+        <i class="fas fa-table-tennis-paddle-ball"></i> 贞丰县第七小学冬季运动会组委会 · 乒乓球班级团体赛
+    </div>
+</div>
+
+<!-- ===== 图片灯箱 ===== -->
+<div class="lightbox" id="lightbox">
+    <button class="lb-close" id="lbClose" title="关闭"><i class="fas fa-xmark"></i></button>
+    <button class="lb-prev" id="lbPrev" title="上一张"><i class="fas fa-chevron-left"></i></button>
+    <img id="lbImg" src="" alt="赛事照片">
+    <button class="lb-next" id="lbNext" title="下一张"><i class="fas fa-chevron-right"></i></button>
+    <div class="lb-caption" id="lbCaption"></div>
+</div>
+
+<!-- ===== 背景音乐控制 ===== -->
+<div class="music-control">
+    <div class="music-panel" id="musicPanel">
+        <div class="music-title"><i class="fas fa-music"></i> 背景音乐</div>
+
+        <div class="saved-indicator" id="savedIndicator">
+            <i class="fas fa-check-circle"></i> 已保存至本地
+        </div>
+
+        <div class="upload-area" id="uploadArea">
+            <i class="fas fa-cloud-arrow-up"></i>
+            <p>点击或拖拽上传音乐</p>
+            <small>支持 MP3 / WAV / OGG 等格式</small>
+            <input type="file" id="fileInput" accept="audio/*">
+        </div>
+
+        <div class="music-info" id="musicInfo">
+            <div class="file-name" id="fileName"><i class="fas fa-file-audio"></i> 未选择文件</div>
+            <div class="progress-bar" id="progressBar"><div class="progress-fill" id="progressFill"></div></div>
+            <div class="time-display">
+                <span id="currentTime">00:00</span>
+                <span id="totalTime">00:00</span>
+            </div>
+        </div>
+
+        <div class="volume-row">
+            <i class="fas fa-volume-xmark" id="muteBtn" title="静音"></i>
+            <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="0.5">
+            <i class="fas fa-volume-high" title="音量"></i>
+        </div>
+
+        <div class="playback-controls">
+            <button id="prevBtn" title="重新播放"><i class="fas fa-backward-step"></i></button>
+            <button id="playBtn" class="main-play" title="播放/暂停"><i class="fas fa-play"></i></button>
+            <button id="nextBtn" title="停止"><i class="fas fa-stop"></i></button>
+        </div>
+
+        <div class="save-music-row">
+            <button class="save-music-btn" id="saveMusicBtn" title="将当前音乐保存到浏览器本地">
+                <i class="fas fa-floppy-disk"></i> 保存当前音乐
+            </button>
+            <button class="clear-saved-btn" id="clearSavedBtn" title="清除已保存的音乐">
+                <i class="fas fa-trash-can"></i> 清除
+            </button>
+        </div>
+
+        <div class="music-hint">保存后下次打开页面自动播放</div>
+    </div>
+
+    <button class="music-toggle" id="musicToggle" title="背景音乐">
+        <i class="fas fa-music"></i>
+    </button>
+</div>
+
+<!-- 背景音乐音频元素 -->
+<audio id="bgMusic" loop preload="auto">
+    <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_1c5a0e6a4d.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+(function() {
+    'use strict';
+
+    var $  = function(s){ return document.querySelector(s); };
+    var $$ = function(s){ return Array.prototype.slice.call(document.querySelectorAll(s)); };
+
+    /* ===== 提示消息 ===== */
+    var toast = document.getElementById('toast');
+    var toastMessage = document.getElementById('toastMessage');
+    var toastTimer = null;
+
+    function showToast(message, type) {
+        if (toastTimer) clearTimeout(toastTimer);
+        toastMessage.textContent = message;
+        toast.className = 'toast show ' + (type || '');
+        var icon = toast.querySelector('i');
+        if (type === 'success') icon.className = 'fas fa-check-circle';
+        else if (type === 'error') icon.className = 'fas fa-exclamation-circle';
+        else icon.className = 'fas fa-info-circle';
+        toastTimer = setTimeout(function() { toast.classList.remove('show'); }, 2800);
+    }
+
+    /* ============================================================
+       一、内容可编辑 + 本地/云端存储
+       ============================================================ */
+    var STORE_KEY = 'zf7x_content_v1';
+    var CLOUD_CONFIG_KEY = 'zf7x_cloud_config';
+    var editEls = $$('[data-edit]');
+    var defaults = {};
+
+    // 1) 备份默认内容
+    editEls.forEach(function(el){ defaults[el.dataset.edit] = el.innerHTML; });
+
+    // 云端配置
+    var cloudConfig = { binId: '', apiKey: '' };
+    try {
+        var savedCloud = localStorage.getItem(CLOUD_CONFIG_KEY);
+        if (savedCloud) cloudConfig = JSON.parse(savedCloud);
+    } catch(e) {}
+
+    var isCloudEnabled = !!(cloudConfig.binId && cloudConfig.apiKey);
+
+    // 2) 从云端拉取最新数据
+    function fetchCloudData() {
+        if (!isCloudEnabled) return Promise.reject('cloud not configured');
+        var url = 'https://api.jsonbin.io/v3/b/' + cloudConfig.binId + '/latest';
+        return fetch(url, {
+            method: 'GET',
+            headers: {
+                'X-Master-Key': cloudConfig.apiKey
+            }
+        }).then(function(res) {
+            if (!res.ok) throw new Error('获取失败');
+            return res.json();
+        }).then(function(json) {
+            return json.record || {};
+        });
+    }
+
+    // 3) 推送到云端
+    function pushCloudData(data) {
+        if (!isCloudEnabled) return Promise.resolve();
+        var url = 'https://api.jsonbin.io/v3/b/' + cloudConfig.binId;
+        return fetch(url, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Master-Key': cloudConfig.apiKey
+            },
+            body: JSON.stringify(data)
+        });
+    }
+
+    // 4) 应用数据到页面
+    function applyContent(data) {
+        content = data || {};
+        editEls.forEach(function(el) {
+            var k = el.dataset.edit;
+            if (typeof content[k] === 'string' && content[k].trim() !== '') {
+                el.innerHTML = content[k];
+            } else {
+                el.innerHTML = defaults[k];
+            }
+        });
+    }
+
+    var content = {};
+    try {
+        var localData = localStorage.getItem(STORE_KEY);
+        if (localData) content = JSON.parse(localData);
+    } catch(e) {}
+
+    // 初始加载：先应用本地数据（如果云端有会再覆盖）
+    applyContent(content);
+
+    // 如果配置了云端，页面一打开就去云端拉最新数据
+    if (isCloudEnabled) {
+        fetchCloudData().then(function(data) {
+            applyContent(data);
+            try { localStorage.setItem(STORE_KEY, JSON.stringify(content)); } catch(e){}
+            showToast('已从云端加载最新内容', 'success');
+        }).catch(function(err) {
+            console.log('云端拉取失败，使用本地缓存', err);
+        });
+    }
+
+    // 5) 输入自动保存（防抖），如果配了云端，则推送到云端
+    var saveTimer = null;
+    var edStatus = document.getElementById('edStatus');
+
+    function persist() {
+        try {
+            localStorage.setItem(STORE_KEY, JSON.stringify(content));
+        } catch (e) {
+            console.warn('本地保存失败', e);
+        }
+
+        if (isCloudEnabled) {
+            if (edStatus) edStatus.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> 正在保存至云端...';
+            pushCloudData(content).then(function() {
+                if (edStatus) {
+                    edStatus.innerHTML = '<i class="fas fa-circle-check"></i> 已同步至云端';
+                    edStatus.classList.remove('flash');
+                    void edStatus.offsetWidth;
+                    edStatus.classList.add('flash');
+                }
+            }).catch(function(err) {
+                if (edStatus) edStatus.innerHTML = '<i class="fas fa-circle-exclamation"></i> 云端同步失败';
+                showToast('云端同步失败，请检查配置', 'error');
+            });
+        } else {
+            if (edStatus) {
+                edStatus.innerHTML = '<i class="fas fa-circle-check"></i> 已保存至本地';
+                edStatus.classList.remove('flash');
+                void edStatus.offsetWidth;
+                edStatus.classList.add('flash');
+            }
+        }
+    }
+
+    editEls.forEach(function(el) {
+        var key = el.dataset.edit;
+        el.addEventListener('input', function() {
+            content[key] = el.innerHTML;
+            clearTimeout(saveTimer);
+            saveTimer = setTimeout(persist, 600);
+        });
+        el.addEventListener('blur', function() {
+            content[key] = el.innerHTML;
+            clearTimeout(saveTimer);
+            persist();
+        });
+    });
+
+    // 6) 编辑模式开关
+    var editing = false;
+    var editToggleBtn = document.getElementById('editToggleBtn');
+
+    function setEditMode(on) {
+        editing = on;
+        document.body.classList.toggle('editing', on);
+        editEls.forEach(function(el) {
+            if (on) {
+                el.setAttribute('contenteditable', 'true');
+                el.setAttribute('spellcheck', 'false');
+            } else {
+                el.removeAttribute('contenteditable');
+                el.removeAttribute('spellcheck');
+            }
+        });
+        editToggleBtn.classList.toggle('primary', !on);
+        editToggleBtn.classList.toggle('on', on);
+        editToggleBtn.innerHTML = on
+            ? '<i class="fas fa-check"></i> 完成编辑'
+            : '<i class="fas fa-pen-to-square"></i> 开启编辑模式';
+        showToast(on ? '编辑模式已开启，修改后会自动同步到云端' : '编辑模式已关闭', on ? 'success' : 'info');
+    }
+
+    editToggleBtn.addEventListener('click', function() {
+        setEditMode(!editing);
+    });
+
+    // 7) 云端配置弹窗逻辑
+    var cloudConfigModal = document.getElementById('cloudConfigModal');
+    document.getElementById('cloudConfigBtn').addEventListener('click', function() {
+        document.getElementById('inputBinId').value = cloudConfig.binId || '';
+        document.getElementById('inputApiKey').value = cloudConfig.apiKey || '';
+        cloudConfigModal.style.display = 'flex';
+    });
+
+    document.getElementById('closeModalBtn').addEventListener('click', function() {
+        cloudConfigModal.style.display = 'none';
+    });
+
+    document.getElementById('saveCloudConfigBtn').addEventListener('click', function() {
+        var bId = document.getElementById('inputBinId').value.trim();
+        var aKey = document.getElementById('inputApiKey').value.trim();
+        
+        if (!bId || !aKey) {
+            showToast('请完整填写 Bin ID 和 API Key', 'error');
+            return;
+        }
+        
+        cloudConfig.binId = bId;
+        cloudConfig.apiKey = aKey;
+        isCloudEnabled = true;
+        
+        localStorage.setItem(CLOUD_CONFIG_KEY, JSON.stringify(cloudConfig));
+        cloudConfigModal.style.display = 'none';
+        
+        // 测试连接并推送当前内容
+        if (edStatus) edStatus.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> 测试连接中...';
+        pushCloudData(content).then(function(res) {
+            if (res.ok) {
+                showToast('云端同步配置成功！', 'success');
+                if (edStatus) {
+                    edStatus.innerHTML = '<i class="fas fa-circle-check"></i> 已同步至云端';
+                }
+            } else {
+                showToast('测试失败：请检查 Key 和 ID 是否正确', 'error');
+                if (edStatus) edStatus.innerHTML = '<i class="fas fa-circle-exclamation"></i> 同步失败';
+            }
+        }).catch(function(err) {
+            showToast('网络连接测试失败', 'error');
+        });
+    });
+
+    // 8) 导出网页
+    document.getElementById('exportHtmlBtn').addEventListener('click', function() {
+        var clone = document.documentElement.cloneNode(true);
+        clone.querySelectorAll('[contenteditable]').forEach(function(el) {
+            el.removeAttribute('contenteditable');
+            el.removeAttribute('spellcheck');
+        });
+        var bodyClone = clone.querySelector('body');
+        if (bodyClone) bodyClone.classList.remove('editing');
+        clone.querySelectorAll('.toast').forEach(function(el){ el.classList.remove('show'); });
+        clone.querySelectorAll('.music-panel').forEach(function(el){ el.classList.remove('show'); });
+        clone.querySelectorAll('.lightbox').forEach(function(el){ el.classList.remove('show'); });
+        
+        var html = '<!DOCTYPE html>\n' + clone.outerHTML;
+        var blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+        var url = URL.createObjectURL(blob);
+        var a = document.createElement('a');
+        a.href = url;
+        a.download = '乒乓球班级团体赛.html';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        setTimeout(function(){ URL.revokeObjectURL(url); }, 1500);
+        showToast('已导出网页文件', 'success');
+    });
+
+    /* ============================================================
+       二、标签切换
+       ============================================================ */
+    var tabs = $$('.tab-btn');
+    var panels = {
+        overview: document.getElementById('panel-overview'),
+        format: document.getElementById('panel-format'),
+        fixtures: document.getElementById('panel-fixtures'),
+        score: document.getElementById('panel-score'),
+        album: document.getElementById('panel-album'),
+        rules: document.getElementById('panel-rules'),
+        awards: document.getElementById('panel-awards')
+    };
+
+    tabs.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var tabId = this.dataset.tab;
+            tabs.forEach(function(t){ t.classList.remove('active'); });
+            Object.keys(panels).forEach(function(k) {
+                if (panels[k]) panels[k].classList.remove('active');
+            });
+            this.classList.add('active');
+            if (panels[tabId]) panels[tabId].classList.add('active');
+        });
+    });
+
+    /* ============================================================
+       三、抽签模拟
+       ============================================================ */
+    var simulateBtn = document.getElementById('simulateBtn');
+    var resultDiv = document.getElementById('simulationResult');
+    var grade4 = ['四(1)班', '四(2)班', '四(3)班', '四(4)班'];
+    var grade5 = ['五(1)班', '五(2)班', '五(3)班', '五(4)班'];
+    var grade6 = ['六(1)班', '六(2)班', '六(3)班', '六(4)班', '六(5)班'];
+
+    function shuffle(arr) {
+        var a = arr.slice();
+        for (var i = a.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var t = a[i]; a[i] = a[j]; a[j] = t;
+        }
+        return a;
+    }
+
+    function renderGradeGroups(gradeName, shuffled, hasEmpty) {
+        var html = '<div class="sim-grade">' + gradeName + '</div><div class="sim-group-container">';
+        if (hasEmpty) {
+            var gA = shuffled.slice(0, 2), gB = shuffled.slice(2, 4), emptyTeam = shuffled[4];
+            html += '<div class="sim-group"><span class="group-label">A组</span><ul>';
+            gA.forEach(function(t){ html += '<li><i class="fas fa-circle"></i>' + t + '</li>'; });
+            html += '</ul></div><div class="sim-group"><span class="group-label">B组</span><ul>';
+            gB.forEach(function(t){ html += '<li><i class="fas fa-circle"></i>' + t + '</li>'; });
+            html += '</ul></div><div class="sim-group empty-group">'
+                  + '<span class="group-label empty-label"><i class="fas fa-arrow-right"></i> 空签 · 直接晋级</span>'
+                  + '<ul><li><i class="fas fa-star"></i>' + emptyTeam + '</li></ul></div>';
+        } else {
+            var gA2 = shuffled.slice(0, 2), gB2 = shuffled.slice(2, 4);
+            html += '<div class="sim-group"><span class="group-label">A组</span><ul>';
+            gA2.forEach(function(t){ html += '<li><i class="fas fa-circle"></i>' + t + '</li>'; });
+            html += '</ul></div><div class="sim-group"><span class="group-label">B组</span><ul>';
+            gB2.forEach(function(t){ html += '<li><i class="fas fa-circle"></i>' + t + '</li>'; });
+            html += '</ul></div>';
+        }
+        html += '</div>';
+        return html;
+    }
+
+    function simulate() {
+        var s4 = shuffle(grade4), s5 = shuffle(grade5), s6 = shuffle(grade6);
+        var html = '<h4><i class="fas fa-list-ul"></i> 分组结果</h4>';
+        html += renderGradeGroups('四年级', s4, false);
+        html += renderGradeGroups('五年级', s5, false);
+        html += renderGradeGroups('六年级', s6, true);
+        html += '<p class="footnote" style="margin-top:1.3rem;"><i class="fas fa-rotate"></i> 每次点击都会重新随机分组，六年级“空签”班级直接晋级第二轮。</p>';
+        resultDiv.innerHTML = html;
+    }
+
+    if (simulateBtn) simulateBtn.addEventListener('click', simulate);
+    window.addEventListener('load', simulate);
+
+    /* ============================================================
+       四、实时计分器
+       ============================================================ */
+    var scoreState = {
+        winGames: 1,
+        a: { points: 0, games: 0 },
+        b: { points: 0, games: 0 },
+        history: [],
+        finished: false
+    };
+
+    var teamANameEl = document.getElementById('teamAName');
+    var teamBNameEl = document.getElementById('teamBName');
+    var teamAPointsEl = document.getElementById('teamAPoints');
+    var teamBPointsEl = document.getElementById('teamBPoints');
+    var teamAGamesEl = document.getElementById('teamAGames');
+    var teamBGamesEl = document.getElementById('teamBGames');
+    var historyListEl = document.getElementById('historyList');
+    var winnerBanner = document.getElementById('winnerBanner');
+    var winnerText = document.getElementById('winnerText');
+    var modeHint = document.getElementById('modeHint');
+    var modeBtns = $$('.mode-btn');
+    var resetScoreBtn = document.getElementById('resetScoreBtn');
+
+    function getTeamName(key) {
+        return (key === 'a' ? teamANameEl.value : teamBNameEl.value).trim() || (key === 'a' ? 'A队' : 'B队');
+    }
+
+    function popScore(el) {
+        el.classList.remove('pop');
+        void el.offsetWidth;
+        el.classList.add('pop');
+    }
+
+    function renderScore() {
+        teamAPointsEl.textContent = scoreState.a.points;
+        teamBPointsEl.textContent = scoreState.b.points;
+        teamAGamesEl.textContent = '局分 ' + scoreState.a.games;
+        teamBGamesEl.textContent = '局分 ' + scoreState.b.games;
+
+        if (scoreState.history.length === 0) {
+            historyListEl.innerHTML = '<span class="history-empty">暂无记录</span>';
+        } else {
+            var html = '';
+            scoreState.history.forEach(function(h) {
+                var cls = h.winner === 'a' ? 'win-a' : 'win-b';
+                html += '<span class="history-item ' + cls + '">'
+                      + '第' + h.set + '局 '
+                      + '<strong>' + h.aName + '</strong> '
+                      + h.a + ' : ' + h.b + ' '
+                      + '<strong>' + h.bName + '</strong>'
+                      + '</span>';
+            });
+            historyListEl.innerHTML = html;
+        }
+
+        if (scoreState.finished) {
+            var winnerKey = scoreState.a.games > scoreState.b.games ? 'a' : 'b';
+            winnerText.textContent = '🏆 ' + getTeamName(winnerKey) + ' 赢得比赛！';
+            winnerBanner.classList.add('show');
+        } else {
+            winnerBanner.classList.remove('show');
+        }
+
+        modeHint.textContent = scoreState.winGames === 1
+            ? '单局制 · 先到 11 分且领先 2 分'
+            : '三局两胜 · 每局先到 11 分';
+    }
+
+    function checkGameWin(teamKey) {
+        var t = scoreState[teamKey];
+        var o = scoreState[teamKey === 'a' ? 'b' : 'a'];
+        if (t.points >= 11 && (t.points - o.points) >= 2) {
+            t.games += 1;
+            scoreState.history.push({
+                set: scoreState.history.length + 1,
+                aName: getTeamName('a'),
+                bName: getTeamName('b'),
+                a: scoreState.a.points,
+                b: scoreState.b.points,
+                winner: teamKey
+            });
+            scoreState.a.points = 0;
+            scoreState.b.points = 0;
+            if (t.games >= scoreState.winGames) scoreState.finished = true;
+            return true;
+        }
+        return false;
+    }
+
+    function addPoint(teamKey, delta) {
+        if (scoreState.finished) {
+            showToast('本场比赛已结束，请点击“重置比赛”开始新一场', 'error');
+            return;
+        }
+        var t = scoreState[teamKey];
+        var newVal = t.points + delta;
+        if (newVal < 0) newVal = 0;
+        t.points = newVal;
+        if (delta > 0) checkGameWin(teamKey);
+        renderScore();
+        popScore(teamKey === 'a' ? teamAPointsEl : teamBPointsEl);
+    }
+
+    var scoreBoard = document.querySelector('.score-board');
+    if (scoreBoard) {
+        scoreBoard.addEventListener('click', function(e) {
+            var btn = e.target.closest('.score-buttons button');
+            if (!btn) return;
+            addPoint(btn.dataset.team, parseInt(btn.dataset.delta, 10));
+        });
+    }
+
+    modeBtns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            modeBtns.forEach(function(b){ b.classList.remove('active'); });
+            this.classList.add('active');
+            scoreState.winGames = this.dataset.mode === '2' ? 2 : 1;
+            resetScore();
+            showToast(this.dataset.mode === '2' ? '已切换为三局两胜制' : '已切换为单局定胜负', 'success');
+        });
+    });
+
+    function resetScore() {
+        scoreState.a.points = 0;
+        scoreState.a.games = 0;
+        scoreState.b.points = 0;
+        scoreState.b.games = 0;
+        scoreState.history = [];
+        scoreState.finished = false;
+        renderScore();
+    }
+
+    if (resetScoreBtn) {
+        resetScoreBtn.addEventListener('click', function() {
+            resetScore();
+            showToast('比分已重置', 'success');
+        });
+    }
+
+    teamANameEl.addEventListener('input', renderScore);
+    teamBNameEl.addEventListener('input', renderScore);
+
+    renderScore();
+
+    /* ============================================================
+       五、赛事相册
+       ============================================================ */
+    var ALBUM_KEY = 'zf7x_album';
+    var albumPhotos = [];
+    var lbIndex = 0;
+
+    var albumUpload = document.getElementById('albumUpload');
+    var albumInput = document.getElementById('albumInput');
+    var albumGrid = document.getElementById('albumGrid');
+    var albumEmpty = document.getElementById('albumEmpty');
+    var albumCount = document.getElementById('albumCount');
+    var clearAlbumBtn = document.getElementById('clearAlbumBtn');
+
+    var lightbox = document.getElementById('lightbox');
+    var lbImg = document.getElementById('lbImg');
+    var lbCaption = document.getElementById('lbCaption');
+    var lbClose = document.getElementById('lbClose');
+    var lbPrev = document.getElementById('lbPrev');
+    var lbNext = document.getElementById('lbNext');
+
+    function loadAlbum() {
+        try {
+            var raw = localStorage.getItem(ALBUM_KEY);
+            if (raw) {
+                var parsed = JSON.parse(raw);
+                if (Array.isArray(parsed)) albumPhotos = parsed;
+            }
+        } catch (e) {
+            console.warn('读取相册失败:', e);
+            albumPhotos = [];
+        }
+        renderAlbum();
+    }
+
+    function saveAlbum() {
+        try {
+            localStorage.setItem(ALBUM_KEY, JSON.stringify(albumPhotos));
+            return true;
+        } catch (e) {
+            console.warn('保存相册失败:', e);
+            return false;
+        }
+    }
+
+    function renderAlbum() {
+        albumCount.textContent = '共 ' + albumPhotos.length + ' 张照片';
+        if (albumPhotos.length === 0) {
+            albumGrid.innerHTML = '';
+            albumEmpty.style.display = 'flex';
+            return;
+        }
+        albumEmpty.style.display = 'none';
+        var html = '';
+        albumPhotos.forEach(function(p, i) {
+            html += '<div class="album-item" data-index="' + i + '">'
+                  + '<img src="' + p.dataUrl + '" alt="赛事照片" loading="lazy">'
+                  + '<span class="album-time">' + (p.time || '') + '</span>'
+                  + '<button class="album-del" data-index="' + i + '" title="删除"><i class="fas fa-xmark"></i></button>'
+                  + '</div>';
+        });
+        albumGrid.innerHTML = html;
+    }
+
+    function compressImage(file, maxSize, quality) {
+        return new Promise(function(resolve, reject) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                var img = new Image();
+                img.onload = function() {
+                    var w = img.width, h = img.height;
+                    var scale = Math.min(1, maxSize / Math.max(w, h));
+                    w = Math.max(1, Math.round(w * scale));
+                    h = Math.max(1, Math.round(h * scale));
+                    var canvas = document.createElement('canvas');
+                    canvas.width = w; canvas.height = h;
+                    var ctx = canvas.getContext('2d');
+                    ctx.fillStyle = '#ffffff';
+                    ctx.fillRect(0, 0, w, h);
+                    ctx.drawImage(img, 0, 0, w, h);
+                    try { resolve(canvas.toDataURL('image/jpeg', quality)); }
+                    catch (err) { reject(err); }
+                };
+                img.onerror = reject;
+                img.src = e.target.result;
+            };
+            reader.onerror = reject;
+            reader.readAsDataURL(file);
+        });
+    }
+
+    function formatDate(d) {
+        var y = d.getFullYear();
+        var m = ('0' + (d.getMonth() + 1)).slice(-2);
+        var day = ('0' + d.getDate()).slice(-2);
+        return y + '-' + m + '-' + day;
+    }
+
+    function handleAlbumFiles(fileList) {
+        var files = Array.prototype.slice.call(fileList);
+        var imageFiles = files.filter(function(f) { return f.type.indexOf('image/') === 0; });
+        if (imageFiles.length === 0) {
+            showToast('请选择图片文件', 'error');
+            return;
+        }
+        var added = 0;
+        var chain = Promise.resolve();
+        imageFiles.forEach(function(file) {
+            chain = chain.then(function() {
+                return compressImage(file, 900, 0.72).then(function(dataUrl) {
+                    albumPhotos.push({
+                        dataUrl: dataUrl,
+                        name: file.name,
+                        time: formatDate(new Date())
+                    });
+                    added++;
+                }).catch(function(err) {
+                    console.warn('图片处理失败:', file.name, err);
+                });
+            });
+        });
+        chain.then(function() {
+            if (added === 0) {
+                showToast('图片处理失败，请重试', 'error');
+                return;
+            }
+            if (!saveAlbum()) {
+                albumPhotos.splice(albumPhotos.length - added, added);
+                renderAlbum();
+                showToast('存储空间不足，请删除部分照片后再试', 'error');
+                return;
+            }
+            renderAlbum();
+            showToast('已添加 ' + added + ' 张照片', 'success');
+        });
+    }
+
+    albumUpload.addEventListener('click', function(){ albumInput.click(); });
+
+    albumInput.addEventListener('change', function() {
+        if (this.files && this.files.length) {
+            handleAlbumFiles(this.files);
+            this.value = '';
+        }
+    });
+
+    albumUpload.addEventListener('dragover', function(e) {
+        e.preventDefault(); e.stopPropagation();
+        this.classList.add('dragover');
+    });
+    albumUpload.addEventListener('dragleave', function(e) {
+        e.preventDefault(); e.stopPropagation();
+        this.classList.remove('dragover');
+    });
+    albumUpload.addEventListener('drop', function(e) {
+        e.preventDefault(); e.stopPropagation();
+        this.classList.remove('dragover');
+        if (e.dataTransfer.files && e.dataTransfer.files.length) {
+            handleAlbumFiles(e.dataTransfer.files);
+        }
+    });
+
+    albumGrid.addEventListener('click', function(e) {
+        var delBtn = e.target.closest('.album-del');
+        if (delBtn) {
+            e.stopPropagation();
+            var idx = parseInt(delBtn.dataset.index, 10);
+            if (isNaN(idx)) return;
+            albumPhotos.splice(idx, 1);
+            if (saveAlbum()) {
+                renderAlbum();
+                showToast('已删除该照片', 'success');
+            } else {
+                showToast('删除失败，请重试', 'error');
+            }
+            return;
+        }
+        var item = e.target.closest('.album-item');
+        if (item) {
+            var index = parseInt(item.dataset.index, 10);
+            if (!isNaN(index)) openLightbox(index);
+        }
+    });
+
+    clearAlbumBtn.addEventListener('click', function() {
+        if (albumPhotos.length === 0) {
+            showToast('相册已经是空的', 'info');
+            return;
+        }
+        if (!window.confirm('确定要清空相册中的所有照片吗？此操作不可恢复。')) return;
+        albumPhotos = [];
+        try { localStorage.removeItem(ALBUM_KEY); } catch (e) {}
+        renderAlbum();
+        showToast('相册已清空', 'success');
+    });
+
+    function openLightbox(index) {
+        if (albumPhotos.length === 0) return;
+        lbIndex = Math.max(0, Math.min(index, albumPhotos.length - 1));
+        updateLightbox();
+        lightbox.classList.add('show');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+        lightbox.classList.remove('show');
+        document.body.style.overflow = '';
+    }
+
+    function updateLightbox() {
+        var p = albumPhotos[lbIndex];
+        if (!p) return;
+        lbImg.src = p.dataUrl;
+        lbCaption.textContent = (lbIndex + 1) + ' / ' + albumPhotos.length + ' · ' + (p.name || '赛事照片');
+    }
+
+    function lbGo(delta) {
+        if (albumPhotos.length === 0) return;
+        lbIndex = (lbIndex + delta + albumPhotos.length) % albumPhotos.length;
+        updateLightbox();
+    }
+
+    lbClose.addEventListener('click', closeLightbox);
+    lbPrev.addEventListener('click', function(e){ e.stopPropagation(); lbGo(-1); });
+    lbNext.addEventListener('click', function(e){ e.stopPropagation(); lbGo(1); });
+    lightbox.addEventListener('click', function(e) {
+        if (e.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener('keydown', function(e) {
+        if (!lightbox.classList.contains('show')) return;
+        if (e.key === 'Escape') closeLightbox();
+        else if (e.key === 'ArrowLeft') lbGo(-1);
+        else if (e.key === 'ArrowRight') lbGo(1);
+    });
+
+    loadAlbum();
+
+    /* ============================================================
+       六、背景音乐控制
+       ============================================================ */
+    var bgMusic = document.getElementById('bgMusic');
+    var musicToggle = document.getElementById('musicToggle');
+    var musicPanel = document.getElementById('musicPanel');
+    var uploadArea = document.getElementById('uploadArea');
+    var fileInput = document.getElementById('fileInput');
+    var musicInfo = document.getElementById('musicInfo');
+    var fileName = document.getElementById('fileName');
+    var progressBar = document.getElementById('progressBar');
+    var progressFill = document.getElementById('progressFill');
+    var currentTimeEl = document.getElementById('currentTime');
+    var totalTimeEl = document.getElementById('totalTime');
+    var volumeSlider = document.getElementById('volumeSlider');
+    var muteBtn = document.getElementById('muteBtn');
+    var playBtn = document.getElementById('playBtn');
+    var prevBtn = document.getElementById('prevBtn');
+    var nextBtn = document.getElementById('nextBtn');
+    var autoplayTip = document.getElementById('autoplayTip');
+    var startMusicBtn = document.getElementById('startMusicBtn');
+    var saveMusicBtn = document.getElementById('saveMusicBtn');
+    var clearSavedBtn = document.getElementById('clearSavedBtn');
+    var savedIndicator = document.getElementById('savedIndicator');
+
+    var isPlaying = false;
+    var currentVolume = 0.5;
+    var isMuted = false;
+    var hasUserFile = false;
+    var currentFile = null;
+    var MUSIC_KEY = 'zf7x_bg_music';
+
+    bgMusic.volume = currentVolume;
+    volumeSlider.value = currentVolume;
+
+    function fmtTime(t) {
+        if (!isFinite(t) || t < 0) return '00:00';
+        var m = Math.floor(t / 60), s = Math.floor(t % 60);
+        return ('0' + m).slice(-2) + ':' + ('0' + s).slice(-2);
+    }
+
+    function updateProgress() {
+        if (bgMusic.duration && isFinite(bgMusic.duration)) {
+            progressFill.style.width = (bgMusic.currentTime / bgMusic.duration * 100) + '%';
+            totalTimeEl.textContent = fmtTime(bgMusic.duration);
+        }
+        currentTimeEl.textContent = fmtTime(bgMusic.currentTime);
+    }
+
+    function restoreSavedMusic() {
+        try {
+            var savedData = localStorage.getItem(MUSIC_KEY);
+            if (!savedData) return false;
+            var data = JSON.parse(savedData);
+            if (!data || !data.dataUrl) return false;
+
+            while (bgMusic.firstChild) bgMusic.removeChild(bgMusic.firstChild);
+            var source = document.createElement('source');
+            source.src = data.dataUrl;
+            source.type = data.type || 'audio/mpeg';
+            bgMusic.appendChild(source);
+            bgMusic.load();
+
+            fileName.innerHTML = '<i class="fas fa-file-audio"></i> ' + (data.name || '已保存的音乐');
+            musicInfo.classList.add('show');
+            hasUserFile = true;
+            savedIndicator.classList.add('show');
+            saveMusicBtn.classList.add('saved');
+            saveMusicBtn.innerHTML = '<i class="fas fa-check"></i> 已保存';
+            return true;
+        } catch (e) {
+            console.warn('恢复保存的音乐失败:', e);
+            return false;
+        }
+    }
+
+    function saveMusicToLocal() {
+        if (!hasUserFile || !currentFile) {
+            var defaultSource = bgMusic.querySelector('source');
+            if (defaultSource && defaultSource.src && defaultSource.src.indexOf('blob:') === -1) {
+                var data = {
+                    name: '默认背景音乐',
+                    dataUrl: defaultSource.src,
+                    type: defaultSource.type || 'audio/mpeg'
+                };
+                try {
+                    localStorage.setItem(MUSIC_KEY, JSON.stringify(data));
+                    savedIndicator.classList.add('show');
+                    saveMusicBtn.classList.add('saved');
+                    saveMusicBtn.innerHTML = '<i class="fas fa-check"></i> 已保存';
+                    showToast('默认音乐已保存，下次打开自动加载', 'success');
+                } catch (e) {
+                    showToast('保存失败：' + e.message, 'error');
+                }
+                return;
+            }
+            showToast('请先上传本地音乐再保存', 'error');
+            return;
+        }
+
+        var reader = new FileReader();
+        reader.onload = function(ev) {
+            var data = {
+                name: currentFile.name,
+                dataUrl: ev.target.result,
+                type: currentFile.type
+            };
+            try {
+                localStorage.setItem(MUSIC_KEY, JSON.stringify(data));
+                savedIndicator.classList.add('show');
+                saveMusicBtn.classList.add('saved');
+                saveMusicBtn.innerHTML = '<i class="fas fa-check"></i> 已保存';
+                showToast('音乐已保存，下次打开自动加载', 'success');
+            } catch (e) {
+                showToast('保存失败：文件过大或浏览器存储空间不足', 'error');
+            }
+        };
+        reader.onerror = function() { showToast('读取文件失败', 'error'); };
+        reader.readAsDataURL(currentFile);
+    }
+
+    function clearSavedMusic() {
+        try {
+            localStorage.removeItem(MUSIC_KEY);
+            savedIndicator.classList.remove('show');
+            saveMusicBtn.classList.remove('saved');
+            saveMusicBtn.innerHTML = '<i class="fas fa-floppy-disk"></i> 保存当前音乐';
+            showToast('已清除保存的音乐', 'success');
+        } catch (e) {
+            showToast('清除失败：' + e.message, 'error');
+        }
+    }
+
+    saveMusicBtn.addEventListener('click', function(e) { e.stopPropagation(); saveMusicToLocal(); });
+    clearSavedBtn.addEventListener('click', function(e) { e.stopPropagation(); clearSavedMusic(); });
+
+    function playMusic() {
+        var p = bgMusic.play();
+        if (p !== undefined) {
+            p.then(function() {
+                isPlaying = true;
+                updatePlayUI();
+                if (autoplayTip) autoplayTip.classList.add('hide');
+            }).catch(function(err) {
+                console.log('播放失败:', err);
+            });
+        }
+    }
+
+    function pauseMusic() {
+        bgMusic.pause();
+        isPlaying = false;
+        updatePlayUI();
+    }
+
+    function updatePlayUI() {
+        if (isPlaying) {
+            playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            playBtn.title = '暂停';
+            musicToggle.classList.add('playing');
+            musicToggle.innerHTML = '<i class="fas fa-pause"></i>';
+        } else {
+            playBtn.innerHTML = '<i class="fas fa-play"></i>';
+            playBtn.title = '播放';
+            musicToggle.classList.remove('playing');
+            musicToggle.innerHTML = '<i class="fas fa-music"></i>';
+        }
+    }
+
+    window.addEventListener('load', function() {
+        var restored = restoreSavedMusic();
+        setTimeout(function() {
+            var p = bgMusic.play();
+            if (p !== undefined) {
+                p.then(function() {
+                    isPlaying = true;
+                    updatePlayUI();
+                    if (autoplayTip) autoplayTip.classList.add('hide');
+                }).catch(function() {
+                    console.log('自动播放被拦截，等待用户操作');
+                });
+            }
+        }, restored ? 500 : 300);
+    });
+
+    startMusicBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        autoplayTip.classList.add('hide');
+        playMusic();
+    });
+
+    autoplayTip.addEventListener('click', function(e) {
+        if (e.target !== startMusicBtn) {
+            autoplayTip.classList.add('hide');
+            playMusic();
+        }
+    });
+
+    musicToggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        if (!musicPanel.classList.contains('show')) {
+            musicPanel.classList.add('show');
+            if (!isPlaying) playMusic();
+        } else {
+            musicPanel.classList.remove('show');
+        }
+    });
+
+    document.addEventListener('click', function(e) {
+        if (!musicPanel.contains(e.target) && e.target !== musicToggle && !musicToggle.contains(e.target)) {
+            musicPanel.classList.remove('show');
+        }
+    });
+
+    playBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        if (isPlaying) pauseMusic(); else playMusic();
+    });
+
+    prevBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        bgMusic.currentTime = 0;
+        if (!isPlaying) playMusic();
+    });
+
+    nextBtn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        pauseMusic();
+        bgMusic.currentTime = 0;
+        updateProgress();
+    });
+
+    volumeSlider.addEventListener('input', function() {
+        currentVolume = parseFloat(this.value);
+        bgMusic.volume = isMuted ? 0 : currentVolume;
+        if (currentVolume > 0) {
+            isMuted = false;
+            muteBtn.className = 'fas fa-volume-high';
+        } else {
+            muteBtn.className = 'fas fa-volume-xmark';
+        }
+    });
+
+    muteBtn.addEventListener('click', function() {
+        if (isMuted) {
+            isMuted = false;
+            bgMusic.volume = currentVolume;
+            volumeSlider.value = currentVolume;
+            muteBtn.className = 'fas fa-volume-high';
+        } else {
+            isMuted = true;
+            bgMusic.volume = 0;
+            volumeSlider.value = 0;
+            muteBtn.className = 'fas fa-volume-xmark';
+        }
+    });
+
+    bgMusic.addEventListener('timeupdate', updateProgress);
+    bgMusic.addEventListener('loadedmetadata', updateProgress);
+    bgMusic.addEventListener('play', function() { isPlaying = true; updatePlayUI(); });
+    bgMusic.addEventListener('pause', function() { isPlaying = false; updatePlayUI(); });
+    bgMusic.addEventListener('ended', function() { isPlaying = false; updatePlayUI(); });
+
+    progressBar.addEventListener('click', function(e) {
+        if (!bgMusic.duration || !isFinite(bgMusic.duration)) return;
+        var r = this.getBoundingClientRect();
+        var ratio = (e.clientX - r.left) / r.width;
+        bgMusic.currentTime = Math.max(0, Math.min(1, ratio)) * bgMusic.duration;
+    });
+
+    function handleMusicFile(file) {
+        if (!file) return;
+        if (file.type.indexOf('audio/') !== 0) {
+            showToast('请选择音频文件', 'error');
+            return;
+        }
+        currentFile = file;
+        hasUserFile = true;
+
+        var url = URL.createObjectURL(file);
+        while (bgMusic.firstChild) bgMusic.removeChild(bgMusic.firstChild);
+        var source = document.createElement('source');
+        source.src = url;
+        source.type = file.type;
+        bgMusic.appendChild(source);
+        bgMusic.load();
+
+        fileName.innerHTML = '<i class="fas fa-file-audio"></i> ' + file.name;
+        musicInfo.classList.add('show');
+        savedIndicator.classList.remove('show');
+        saveMusicBtn.classList.remove('saved');
+        saveMusicBtn.innerHTML = '<i class="fas fa-floppy-disk"></i> 保存当前音乐';
+
+        playMusic();
+        showToast('音乐已加载：' + file.name, 'success');
+    }
+
+    uploadArea.addEventListener('click', function(){ fileInput.click(); });
+    fileInput.addEventListener('change', function() {
+        if (this.files && this.files[0]) {
+            handleMusicFile(this.files[0]);
+            this.value = '';
+        }
+    });
+    uploadArea.addEventListener('dragover', function(e) {
+        e.preventDefault(); e.stopPropagation();
+        this.classList.add('dragover');
+    });
+    uploadArea.addEventListener('dragleave', function(e) {
+        e.preventDefault(); e.stopPropagation();
+        this.classList.remove('dragover');
+    });
+    uploadArea.addEventListener('drop', function(e) {
+        e.preventDefault(); e.stopPropagation();
+        this.classList.remove('dragover');
+        if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+            handleMusicFile(e.dataTransfer.files[0]);
+        }
+    });
+
+    updateProgress();
+
+    /* 离开页面前保存一次内容 */
+    window.addEventListener('beforeunload', function() {
+        try { localStorage.setItem(STORE_KEY, JSON.stringify(content)); } catch (e) {}
+    });
+
+})();
+</script>
+</body>
+</html>
